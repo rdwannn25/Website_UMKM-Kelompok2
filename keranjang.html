@@ -109,10 +109,30 @@ footer { background:#153d31; color:white; margin-top:50px; padding:25px 0; }
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/data.js"></script>
-<script src="assets/js/main.js"></script>
-
 <script>
+const products = [
+    { id: 1, name: "Keripik Pisang", price: 15000, store: "UMKM Lokal", img: "https://placehold.co/400x250/e8f5ee/198754?text=Keripik+Pisang" },
+    { id: 2, name: "Es Buah", price: 10000, store: "UMKM Lokal", img: "https://placehold.co/400x250/e8f5ee/198754?text=Es+Buah" },
+    { id: 3, name: "Kaos Lokal", price: 75000, store: "UMKM Lokal", img: "https://placehold.co/400x250/e8f5ee/198754?text=Kaos+Lokal" },
+    { id: 4, name: "Kerajinan Tangan", price: 50000, store: "UMKM Lokal", img: "https://placehold.co/400x250/e8f5ee/198754?text=Kerajinan+Tangan" }
+];
+
+function getCart() {
+    return JSON.parse(localStorage.getItem("umkmCart") || "[]");
+}
+
+function saveCart(cart) {
+    localStorage.setItem("umkmCart", JSON.stringify(cart));
+}
+
+function cartCount() {
+    return getCart().reduce((jumlah, item) => jumlah + item.qty, 0);
+}
+
+function formatRupiah(nilai) {
+    return "Rp" + nilai.toLocaleString("id-ID");
+}
+
 // Menampilkan isi keranjang
 function tampilkanKeranjang() {
     let keranjang = getCart(), jumlah = 0, total = 0;
@@ -148,7 +168,7 @@ function tampilkanKeranjang() {
             <h1>🛒</h1>
             <h5>Keranjang masih kosong</h5>
             <p class="text-secondary">Silakan pilih produk terlebih dahulu.</p>
-            <a href="produk.html" class="btn btn-success">Lihat Produk</a>
+            <a href="kategori.html" class="btn btn-success">Pilih Produk</a>
            </div>`;
 
     document.getElementById("jumlahItem").textContent = jumlah + " produk";
