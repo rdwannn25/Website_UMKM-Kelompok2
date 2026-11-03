@@ -194,14 +194,24 @@
 </div>
 </div>
 
-<!-- Footer -->
-<footer>
-<div class="container text-center">
-    <h5 class="fw-bold">UMKM Digital Hub</h5>
-    <p class="mb-1">Mendukung produk usaha lokal di sekitar kampus.</p>
-    <small>© 2026 UMKM Digital Hub</small>
-</div>
-</footer>
+<!-- PEMANGGILAN FOOTER -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Memanggil footer.html -->
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer-container").innerHTML = data;
+            })
+            .catch(error => {
+                console.error("Footer gagal dimuat:", error);
+            });
+    </script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
