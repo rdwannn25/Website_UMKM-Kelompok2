@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMKM Digital Hub - Kategori</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- STYLE CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,28 +43,23 @@
             margin-bottom: 25px;
         }
 
-        .category-card {
-            background-color: white;
-            padding: 25px 15px;
+        .kategori-card {
+            border: none;
             border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
             transition: 0.3s;
-            height: 100%;
-            border: 1px solid #ddd;
         }
 
-        .category-card:hover {
+        .kategori-card:hover,
+        .produk-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .category-card i {
-            font-size: 35px;
+        .kategori-card i {
             color: #198754;
         }
 
-        .product-card {
+        .produk-card {
             border: none;
             border-radius: 10px;
             overflow: hidden;
@@ -77,19 +67,29 @@
             transition: 0.3s;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-        }
-
-        .product-card img {
+        .produk-card img {
             height: 190px;
             object-fit: cover;
         }
 
-        .price {
+        .harga {
             color: #198754;
             font-weight: bold;
+            font-size: 18px;
+        }
+
+        .btn-primary {
+            --bs-btn-bg: #198754;
+            --bs-btn-border-color: #198754;
+            --bs-btn-hover-bg: #146c43;
+            --bs-btn-hover-border-color: #146c43;
+        }
+
+        .btn-outline-primary {
+            --bs-btn-color: #198754;
+            --bs-btn-border-color: #198754;
+            --bs-btn-hover-bg: #198754;
+            --bs-btn-hover-border-color: #198754;
         }
 
         footer {
@@ -107,18 +107,57 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 576px) {
-            .hero {
-                padding: 40px 0;
-            }
+        .locations {
+            padding: 48px 0;
+            background-color: #f3faf5;
+        }
 
-            .hero h1 {
-                font-size: 26px;
-            }
+        .location-details {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-            .product-card img {
-                height: 140px;
-            }
+        .location-details h2 {
+            margin-bottom: 10px;
+            color: #183b2b;
+            font-weight: 700;
+        }
+
+        .location-details p {
+            margin-bottom: 0;
+            color: #66736b;
+            line-height: 1.5;
+        }
+
+        .location-button {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 1030;
+            display: flex;
+            width: 56px;
+            height: 56px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #198754;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .location-button:hover {
+            background-color: #146c43;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .location-button:focus-visible {
+            outline: 3px solid #a3cfbb;
+            outline-offset: 3px;
         }
     </style>
 </head>
@@ -128,578 +167,364 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-white shadow-sm">
         <div class="container">
-
             <a class="navbar-brand" href="beranda.html">
                 <i class="bi bi-shop"></i> UMKM Digital Hub
             </a>
 
             <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarMenu">
-
                 <ul class="navbar-nav ms-auto me-3">
-
                     <li class="nav-item">
                         <a class="nav-link" href="beranda.html">Beranda</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link active" href="kategori.html">Kategori</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="promo.html">Promo</a>
-                    </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="tentangKami.html">Tentang Kami</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="kontak.html">Kontak</a>
                     </li>
-
                 </ul>
 
                 <a href="keranjang.html" class="btn btn-success">
-                    <i class="bi bi-cart"></i> Keranjang
+                    <i class="bi bi-cart"></i>
+                    Keranjang (<span id="jumlahKeranjang">0</span>)
                 </a>
-
             </div>
         </div>
     </nav>
 
-
-    <!-- HERO KATEGORI -->
+    <!-- HERO -->
     <section class="hero">
         <div class="container">
-
             <div class="row align-items-center">
-
                 <div class="col-md-7">
-
-                    <h1>Jelajahi Produk UMKM</h1>
-
+                    <h1>Kategori Produk UMKM</h1>
                     <p class="mt-3">
-                        Temukan berbagai produk unggulan dari pelaku
-                        UMKM lokal, mulai dari makanan ringan,
-                        kue, hingga minuman segar.
+                        Temukan berbagai produk unggulan dari pelaku UMKM lokal.
+                        Dukung produk dalam negeri dan kembangkan usaha lokal bersama kami.
                     </p>
-
-                    <a href="#produk" class="btn btn-success mt-2">
-                        Lihat Produk
-                    </a>
-
                 </div>
 
                 <div class="col-md-5 text-center mt-4 mt-md-0">
-
                     <img
-                        src="https://placehold.co/500x300/e8f5ee/198754?text=Produk+UMKM"
+                        src="https://kliklegal.com/wp-content/uploads/2023/04/Sumber-Pajakku-1.webp"
                         class="img-fluid rounded"
-                        alt="Produk UMKM">
-
+                        alt="Produk UMKM lokal">
                 </div>
-
             </div>
-
         </div>
     </section>
 
+    <main class="container my-5">
+        <!-- KATEGORI -->
+        <h3 class="section-title">Pilih Kategori</h3>
 
-    <!-- KATEGORI PRODUK -->
-    <section class="container my-5">
-
-        <h2 class="section-title text-center">
-            Pilih Kategori Produk
-        </h2>
-
-        <div class="row g-3 justify-content-center">
-
-            <!-- KATEGORI MAKANAN -->
-            <div class="col-6 col-md-3">
-
-                <div class="category-card"
-                    onclick="filterProduk('Makanan')">
-
-                    <i class="bi bi-egg-fried"></i>
-
-                    <h5 class="mt-3">Makanan</h5>
-
-                    <p class="text-muted mb-0">
-                        Aneka makanan lokal
-                    </p>
-
+        <div class="row g-3 mb-5">
+            <div class="col-md-6">
+                <div class="card kategori-card shadow-sm p-4 text-center h-100">
+                    <i class="bi bi-basket-fill fs-1"></i>
+                    <h5 class="mt-2">Makanan</h5>
+                    <p class="text-muted mb-0">Berbagai makanan lokal pilihan.</p>
+                    <button class="btn btn-outline-primary mt-3"
+                        onclick="filterKategori('makanan')">
+                        Lihat Makanan
+                    </button>
                 </div>
-
             </div>
 
-            <!-- KATEGORI MINUMAN -->
-            <div class="col-6 col-md-3">
-
-                <div class="category-card"
-                    onclick="filterProduk('Minuman')">
-
-                    <i class="bi bi-cup-straw"></i>
-
-                    <h5 class="mt-3">Minuman</h5>
-
-                    <p class="text-muted mb-0">
-                        Aneka minuman segar
-                    </p>
-
+            <div class="col-md-6">
+                <div class="card kategori-card shadow-sm p-4 text-center h-100">
+                    <i class="bi bi-cup-straw fs-1"></i>
+                    <h5 class="mt-2">Minuman</h5>
+                    <p class="text-muted mb-0">Minuman segar dan nikmat.</p>
+                    <button class="btn btn-outline-primary mt-3"
+                        onclick="filterKategori('minuman')">
+                        Lihat Minuman
+                    </button>
                 </div>
-
             </div>
-
         </div>
 
-        <div class="text-center mt-3">
-            <button class="btn btn-outline-success"
-                onclick="filterProduk('Semua')">
-                Tampilkan Semua Produk
-            </button>
+        <!-- DAFTAR PRODUK -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-3">
+            <h3 class="section-title mb-0">Daftar Produk</h3>
+            <input type="text" id="cariProduk" class="form-control"
+                style="max-width: 300px;"
+                placeholder="Cari produk..."
+                onkeyup="cariProduk()"
+                aria-label="Cari produk">
         </div>
 
-    </section>
-
-
-    <!-- DAFTAR PRODUK -->
-    <section class="container my-5" id="produk">
-
-        <h2 class="section-title text-center">
-            Produk UMKM Pilihan
-        </h2>
-
-        <!-- PENCARIAN -->
-        <div class="row mb-4">
-
-            <div class="col-md-6 mx-auto">
-
-                <div class="input-group">
-
-                    <span class="input-group-text bg-white">
-                        <i class="bi bi-search"></i>
-                    </span>
-
-                    <input type="text" id="cari"
-                        class="form-control"
-                        placeholder="Cari nama produk..."
-                        onkeyup="cariProduk()">
-
-                </div>
-
-            </div>
-
+        <div class="mb-4">
+            <button class="btn btn-primary btn-sm" onclick="filterKategori('semua')">Semua</button>
+            <button class="btn btn-outline-primary btn-sm" onclick="filterKategori('makanan')">Makanan</button>
+            <button class="btn btn-outline-primary btn-sm" onclick="filterKategori('minuman')">Minuman</button>
         </div>
-
 
         <div class="row g-4" id="daftarProduk">
-
-            <!-- PRODUK MAKANAN 1 -->
-            <div class="col-6 col-md-3 product-item"
-                data-kategori="Makanan">
-
-                <div class="card product-card">
-
-                    <img
-                        src="https://placehold.co/400x250/e8f5ee/198754?text=Keripik+Pisang"
-                        class="card-img-top"
-                        alt="Keripik Pisang">
-
+            <div class="col-md-3 col-sm-6 produk" data-kategori="makanan">
+                <div class="card produk-card shadow-sm">
+                    <img src="https://placehold.co/400x250?text=Keripik+Pisang" class="card-img-top" alt="Keripik Pisang">
                     <div class="card-body">
-
                         <h5>Keripik Pisang</h5>
-
-                        <p class="text-muted">
-                            Camilan renyah dan gurih.
-                        </p>
-
-                        <p class="price">Rp15.000</p>
-
-                        <button class="btn btn-success w-100"
-                            onclick="beli('Keripik Pisang')">
+                        <p class="text-muted">Camilan renyah dan enak.</p>
+                        <p class="harga">Rp15.000</p>
+                        <button class="btn btn-primary w-100"
+                            onclick="beli(1, 'Keripik Pisang', 15000, 'https://placehold.co/400x250?text=Keripik+Pisang')">
                             <i class="bi bi-cart-plus"></i> Beli
                         </button>
-
                     </div>
                 </div>
             </div>
 
-
-            <!-- PRODUK MAKANAN 2 -->
-            <div class="col-6 col-md-3 product-item"
-                data-kategori="Makanan">
-
-                <div class="card product-card">
-
-                    <img
-                        src="https://placehold.co/400x250/e8f5ee/198754?text=Brownies"
-                        class="card-img-top"
-                        alt="Brownies">
-
+            <div class="col-md-3 col-sm-6 produk" data-kategori="makanan">
+                <div class="card produk-card shadow-sm">
+                    <img src="https://placehold.co/400x250?text=Brownies" class="card-img-top" alt="Brownies">
                     <div class="card-body">
-
                         <h5>Brownies</h5>
-
-                        <p class="text-muted">
-                            Kue cokelat lembut dan manis.
-                        </p>
-
-                        <p class="price">Rp25.000</p>
-
-                        <button class="btn btn-success w-100"
-                            onclick="beli('Brownies')">
+                        <p class="text-muted">Kue cokelat lembut dan manis.</p>
+                        <p class="harga">Rp25.000</p>
+                        <button class="btn btn-primary w-100"
+                            onclick="beli(2, 'Brownies', 25000, 'https://placehold.co/400x250?text=Brownies')">
                             <i class="bi bi-cart-plus"></i> Beli
                         </button>
-
                     </div>
                 </div>
             </div>
 
-
-            <!-- PRODUK MAKANAN 3 -->
-            <div class="col-6 col-md-3 product-item"
-                data-kategori="Makanan">
-
-                <div class="card product-card">
-
-                    <img
-                        src="https://placehold.co/400x250/e8f5ee/198754?text=Kue+Kering"
-                        class="card-img-top"
-                        alt="Kue Kering">
-
+            <div class="col-md-3 col-sm-6 produk" data-kategori="makanan">
+                <div class="card produk-card shadow-sm">
+                    <img src="https://placehold.co/400x250?text=Kue+Kering" class="card-img-top" alt="Kue Kering">
                     <div class="card-body">
-
                         <h5>Kue Kering</h5>
-
-                        <p class="text-muted">
-                            Kue renyah untuk teman santai.
-                        </p>
-
-                        <p class="price">Rp30.000</p>
-
-                        <button class="btn btn-success w-100"
-                            onclick="beli('Kue Kering')">
+                        <p class="text-muted">Kue renyah cocok untuk camilan.</p>
+                        <p class="harga">Rp30.000</p>
+                        <button class="btn btn-primary w-100"
+                            onclick="beli(3, 'Kue Kering', 30000, 'https://placehold.co/400x250?text=Kue+Kering')">
                             <i class="bi bi-cart-plus"></i> Beli
                         </button>
-
                     </div>
                 </div>
             </div>
 
-
-            <!-- PRODUK MAKANAN 4 -->
-            <div class="col-6 col-md-3 product-item"
-                data-kategori="Makanan">
-
-                <div class="card product-card">
-
-                    <img
-                        src="https://placehold.co/400x250/e8f5ee/198754?text=Keripik+Singkong"
-                        class="card-img-top"
-                        alt="Keripik Singkong">
-
+            <div class="col-md-3 col-sm-6 produk" data-kategori="makanan">
+                <div class="card produk-card shadow-sm">
+                    <img src="https://placehold.co/400x250?text=Keripik+Singkong" class="card-img-top" alt="Keripik Singkong">
                     <div class="card-body">
-
                         <h5>Keripik Singkong</h5>
-
-                        <p class="text-muted">
-                            Camilan gurih khas lokal.
-                        </p>
-
-                        <p class="price">Rp12.000</p>
-
-                        <button class="btn btn-success w-100"
-                            onclick="beli('Keripik Singkong')">
+                        <p class="text-muted">Camilan gurih dan renyah.</p>
+                        <p class="harga">Rp12.000</p>
+                        <button class="btn btn-primary w-100"
+                            onclick="beli(4, 'Keripik Singkong', 12000, 'https://placehold.co/400x250?text=Keripik+Singkong')">
                             <i class="bi bi-cart-plus"></i> Beli
                         </button>
-
                     </div>
                 </div>
             </div>
 
-
-            <!-- PRODUK MINUMAN 1 -->
-            <div class="col-6 col-md-3 product-item"
-                data-kategori="Minuman">
-
-                <div class="card product-card">
-
-                    <img
-                        src="https://placehold.co/400x250/e8f5ee/198754?text=Es+Buah"
-                        class="card-img-top"
-                        alt="Es Buah">
-
+            <div class="col-md-3 col-sm-6 produk" data-kategori="minuman">
+                <div class="card produk-card shadow-sm">
+                    <img src="https://placehold.co/400x250?text=Es+Buah" class="card-img-top" alt="Es Buah">
                     <div class="card-body">
-
                         <h5>Es Buah</h5>
-
-                        <p class="text-muted">
-                            Minuman segar dengan aneka buah.
-                        </p>
-
-                        <p class="price">Rp10.000</p>
-
-                        <button class="btn btn-success w-100"
-                            onclick="beli('Es Buah')">
+                        <p class="text-muted">Minuman segar dengan buah pilihan.</p>
+                        <p class="harga">Rp10.000</p>
+                        <button class="btn btn-primary w-100"
+                            onclick="beli(5, 'Es Buah', 10000, 'https://placehold.co/400x250?text=Es+Buah')">
                             <i class="bi bi-cart-plus"></i> Beli
                         </button>
-
                     </div>
                 </div>
             </div>
 
-
-            <!-- PRODUK MINUMAN 2 -->
-            <div class="col-6 col-md-3 product-item"
-                data-kategori="Minuman">
-
-                <div class="card product-card">
-
-                    <img
-                        src="https://placehold.co/400x250/e8f5ee/198754?text=Es+Teh"
-                        class="card-img-top"
-                        alt="Es Teh">
-
+            <div class="col-md-3 col-sm-6 produk" data-kategori="minuman">
+                <div class="card produk-card shadow-sm">
+                    <img src="https://placehold.co/400x250?text=Es+Teh" class="card-img-top" alt="Es Teh">
                     <div class="card-body">
-
                         <h5>Es Teh</h5>
-
-                        <p class="text-muted">
-                            Teh segar dengan rasa manis.
-                        </p>
-
-                        <p class="price">Rp5.000</p>
-
-                        <button class="btn btn-success w-100"
-                            onclick="beli('Es Teh')">
+                        <p class="text-muted">Teh manis segar untuk menemani hari.</p>
+                        <p class="harga">Rp5.000</p>
+                        <button class="btn btn-primary w-100"
+                            onclick="beli(6, 'Es Teh', 5000, 'https://placehold.co/400x250?text=Es+Teh')">
                             <i class="bi bi-cart-plus"></i> Beli
                         </button>
-
                     </div>
                 </div>
             </div>
 
-
-            <!-- PRODUK MINUMAN 3 -->
-            <div class="col-6 col-md-3 product-item"
-                data-kategori="Minuman">
-
-                <div class="card product-card">
-
-                    <img
-                        src="https://placehold.co/400x250/e8f5ee/198754?text=Jus+Alpukat"
-                        class="card-img-top"
-                        alt="Jus Alpukat">
-
+            <div class="col-md-3 col-sm-6 produk" data-kategori="minuman">
+                <div class="card produk-card shadow-sm">
+                    <img src="https://placehold.co/400x250?text=Jus+Alpukat" class="card-img-top" alt="Jus Alpukat">
                     <div class="card-body">
-
                         <h5>Jus Alpukat</h5>
-
-                        <p class="text-muted">
-                            Jus alpukat segar dan nikmat.
-                        </p>
-
-                        <p class="price">Rp12.000</p>
-
-                        <button class="btn btn-success w-100"
-                            onclick="beli('Jus Alpukat')">
+                        <p class="text-muted">Jus alpukat segar dan nikmat.</p>
+                        <p class="harga">Rp12.000</p>
+                        <button class="btn btn-primary w-100"
+                            onclick="beli(7, 'Jus Alpukat', 12000, 'https://placehold.co/400x250?text=Jus+Alpukat')">
                             <i class="bi bi-cart-plus"></i> Beli
                         </button>
-
                     </div>
                 </div>
             </div>
 
-
-            <!-- PRODUK MINUMAN 4 -->
-            <div class="col-6 col-md-3 product-item"
-                data-kategori="Minuman">
-
-                <div class="card product-card">
-
-                    <img
-                        src="https://placehold.co/400x250/e8f5ee/198754?text=Kopi+Susu"
-                        class="card-img-top"
-                        alt="Kopi Susu">
-
+            <div class="col-md-3 col-sm-6 produk" data-kategori="minuman">
+                <div class="card produk-card shadow-sm">
+                    <img src="https://placehold.co/400x250?text=Kopi+Susu" class="card-img-top" alt="Kopi Susu">
                     <div class="card-body">
-
                         <h5>Kopi Susu</h5>
-
-                        <p class="text-muted">
-                            Perpaduan kopi dan susu.
-                        </p>
-
-                        <p class="price">Rp15.000</p>
-
-                        <button class="btn btn-success w-100"
-                            onclick="beli('Kopi Susu')">
+                        <p class="text-muted">Kopi susu dengan rasa creamy.</p>
+                        <p class="harga">Rp15.000</p>
+                        <button class="btn btn-primary w-100"
+                            onclick="beli(8, 'Kopi Susu', 15000, 'https://placehold.co/400x250?text=Kopi+Susu')">
                             <i class="bi bi-cart-plus"></i> Beli
                         </button>
-
                     </div>
                 </div>
             </div>
-
         </div>
 
-
-        <p id="tidakAda" class="text-center mt-4"
-            style="display:none;">
+        <p id="produkKosong" class="text-center text-muted mt-4" style="display:none;">
             Produk tidak ditemukan.
         </p>
+    </main>
 
+    <!-- INFORMASI LOKASI -->
+    <section class="locations" id="locations">
+        <div class="container">
+            <div class="location-details">
+                <h2>Lokasi UMKM</h2>
+                <p>Jl. Contoh UMKM No. 123, Kota Contoh, Provinsi Contoh</p>
+            </div>
+        </div>
     </section>
-
 
     <!-- FOOTER -->
     <footer>
-
         <div class="container">
-
             <div class="row">
-
                 <div class="col-md-6 mb-3">
-
-                    <h5>
-                        <i class="bi bi-shop"></i> UMKM Digital Hub
-                    </h5>
-
+                    <h5><i class="bi bi-shop"></i> UMKM Digital Hub</h5>
                     <p>
-                        Platform digital untuk mengenalkan dan
-                        memasarkan produk unggulan UMKM lokal.
+                        Platform digital untuk mengenalkan dan memasarkan
+                        produk unggulan UMKM lokal.
                     </p>
-
                 </div>
 
                 <div class="col-md-3 mb-3">
-
                     <h6>Menu</h6>
-
                     <p><a href="beranda.html">Beranda</a></p>
                     <p><a href="kategori.html">Kategori</a></p>
                     <p><a href="promo.html">Promo</a></p>
-
                 </div>
 
                 <div class="col-md-3 mb-3">
-
                     <h6>Informasi</h6>
-
                     <p><a href="tentangKami.html">Tentang Kami</a></p>
                     <p><a href="kontak.html">Kontak</a></p>
                     <p><a href="keranjang.html">Keranjang</a></p>
-
                 </div>
-
             </div>
 
             <hr>
-
             <p class="text-center mb-0">
                 &copy; 2026 UMKM Digital Hub. All Rights Reserved.
             </p>
-
         </div>
-
     </footer>
 
+    <a href="lokasi.html" class="location-button"
+        aria-label="Lihat lokasi UMKM" title="Lihat lokasi">
+        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+    </a>
 
-    <!-- BOOTSTRAP JAVASCRIPT -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-    <!-- JAVASCRIPT -->
     <script>
-
-        // FILTER KATEGORI
-        function filterProduk(kategori) {
-
-            let produk = document.querySelectorAll(".product-item");
-
-            produk.forEach(function(item) {
-
-                if (kategori === "Semua" ||
-                    item.dataset.kategori === kategori) {
-
-                    item.style.display = "";
-
-                } else {
-
-                    item.style.display = "none";
-
-                }
-
-            });
-
-            document.getElementById("cari").value = "";
-
-            cekProduk();
+        function getCart() {
+            try {
+                return JSON.parse(localStorage.getItem("umkmCart") || "[]");
+            } catch (error) {
+                return [];
+            }
         }
 
+        function saveCart(cart) {
+            localStorage.setItem("umkmCart", JSON.stringify(cart));
+        }
 
-        // PENCARIAN PRODUK
+        function beli(id, nama, harga, gambar) {
+            let cart = getCart();
+            let produk = cart.find(item => Number(item.id) === id);
+
+            if (produk) {
+                produk.qty = Number(produk.qty || 0) + 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: nama,
+                    price: harga,
+                    img: gambar,
+                    store: "UMKM Lokal",
+                    qty: 1
+                });
+            }
+
+            saveCart(cart);
+            updateJumlahKeranjang();
+            alert(nama + " berhasil ditambahkan ke keranjang!");
+        }
+
+        function updateJumlahKeranjang() {
+            let cart = getCart();
+            let jumlah = cart.reduce((total, item) => {
+                return total + Number(item.qty || 0);
+            }, 0);
+
+            document.getElementById("jumlahKeranjang").textContent = jumlah;
+        }
+
+        function filterKategori(kategori) {
+            let produk = document.querySelectorAll(".produk");
+
+            produk.forEach(item => {
+                let jenis = item.getAttribute("data-kategori");
+                item.style.display =
+                    kategori === "semua" || jenis === kategori ? "" : "none";
+            });
+
+            cekProdukKosong();
+        }
+
         function cariProduk() {
+            let keyword = document.getElementById("cariProduk").value.toLowerCase();
+            let produk = document.querySelectorAll(".produk");
 
-            let keyword = document.getElementById("cari")
-                .value.toLowerCase();
-
-            let produk = document.querySelectorAll(".product-item");
-
-            produk.forEach(function(item) {
-
-                let nama = item.querySelector("h5")
-                    .textContent.toLowerCase();
-
-                if (nama.includes(keyword)) {
-
-                    item.style.display = "";
-
-                } else {
-
-                    item.style.display = "none";
-
-                }
-
+            produk.forEach(item => {
+                let nama = item.querySelector("h5").textContent.toLowerCase();
+                item.style.display = nama.includes(keyword) ? "" : "none";
             });
 
-            cekProduk();
+            cekProdukKosong();
         }
 
+        function cekProdukKosong() {
+            let produk = document.querySelectorAll(".produk");
+            let terlihat = Array.from(produk).some(item => item.style.display !== "none");
 
-        // MENGECEK PRODUK
-        function cekProduk() {
-
-            let produk = document.querySelectorAll(".product-item");
-
-            let jumlah = 0;
-
-            produk.forEach(function(item) {
-
-                if (item.style.display !== "none") {
-                    jumlah++;
-                }
-
-            });
-
-            document.getElementById("tidakAda").style.display =
-                jumlah === 0 ? "block" : "none";
+            document.getElementById("produkKosong").style.display =
+                terlihat ? "none" : "block";
         }
 
-
-        // TOMBOL BELI
-        function beli(nama) {
-
-            alert("Kamu memilih produk: " + nama);
-
-        }
-
+        updateJumlahKeranjang();
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+````
