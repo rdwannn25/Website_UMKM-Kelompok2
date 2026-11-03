@@ -75,6 +75,7 @@ footer { background:#153d31; color:white; margin-top:50px; padding:25px 0; }
             </div>
             <div id="daftarKeranjang"></div>
         </div>
+    </div>
   
     <div class="col-lg-4">
         <div class="ringkasan">
@@ -139,8 +140,8 @@ function tampilkanKeranjang() {
 
     document.getElementById("daftarKeranjang").innerHTML = keranjang.length
         ? keranjang.map(item => {
-            let p = products.find(x => x.id === item.id);
-            if (!p) return "";
+        let p = products.find(x => x.id === item.id) || item;
+        if (!p.name || !p.price) return "";
             jumlah += item.qty;
             total += p.price * item.qty;
 
