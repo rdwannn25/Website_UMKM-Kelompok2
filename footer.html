@@ -1,0 +1,249 @@
+<style>
+    /* FOOTER UTAMA */
+    .location-section {
+        background-color: #198754;
+        color: white;
+        padding: 45px 0 20px;
+    }
+
+    /* KOLOM FOOTER */
+    .location-column {
+        padding: 5px 25px;
+        min-height: 180px;
+    }
+
+    /* GARIS PEMISAH VERTIKAL */
+    .location-column:not(:first-child) {
+        border-left: 1px solid rgba(255,255,255,0.35);
+    }
+
+    /* JUDUL BRAND */
+    .location-brand {
+        font-size: 21px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: white;
+    }
+
+    .location-brand i,
+    .location-title i {
+        color: #a3e635;
+    }
+
+    /* JUDUL KOLOM */
+    .location-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 18px;
+    }
+
+    /* DESKRIPSI */
+    .location-text {
+        color: #d1e7d8;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    /* LINK MENU */
+    .location-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .location-links li {
+        margin-bottom: 12px;
+    }
+
+    .location-links a {
+        color: #d1e7d8;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .location-links a:hover {
+        color: #a3e635;
+        padding-left: 5px;
+    }
+
+    .location-links i {
+        margin-right: 7px;
+    }
+
+    /* INFORMASI LOKASI */
+    .location-detail {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 15px;
+        color: #d1e7d8;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .location-detail i {
+        color: #a3e635;
+        font-size: 17px;
+        margin-top: 3px;
+    }
+
+    /* PEMBATAS */
+    .location-divider {
+        border-color: rgba(255,255,255,0.3);
+        margin: 30px 0 18px;
+    }
+
+    /* COPYRIGHT */
+    .location-bottom {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .location-bottom p {
+        font-size: 12px;
+        color: #d1e7d8;
+        margin: 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .location-section {
+            padding: 35px 0 20px;
+        }
+
+        .location-column {
+            padding: 20px 15px;
+            min-height: auto;
+        }
+
+        .location-column:not(:first-child) {
+            border-left: none;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .location-bottom {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+        .product-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+</style>
+
+<footer class="location-section" id="locations">
+    <div class="container">
+
+        <div class="row align-items-start">
+
+            <!-- KOLOM 1: INFORMASI UMKM -->
+            <div class="col-md-4 location-column">
+
+                <h5 class="location-brand">
+                    <i class="bi bi-shop"></i>
+                    UMKM Digital Hub
+                </h5>
+
+                <p class="location-text">
+                    Platform digital untuk mengenalkan dan memasarkan produk unggulan 
+                    UMKM lokal.
+                </p>
+
+            </div>
+
+            <!-- KOLOM 2: LOKASI -->
+            <div class="col-md-4 location-column">
+
+                <h5 class="location-title">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    Lokasi UMKM
+                </h5>
+
+                <div class="location-detail">
+                    <i class="bi bi-pin-map-fill"></i>
+
+                    <span>
+                        Jl. Moch. Toha No.77, Cigereleng,
+                        Kec. Regol, Kota Bandung,
+                        Jawa Barat 40253
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- KOLOM 3: MENU -->
+            <div class="col-md-4 location-column">
+
+                <h5 class="location-title">Menu</h5>
+
+                <ul class="location-links">
+
+                    <li>
+                        <a href="beranda.html">
+                            <i class="bi bi-house-door"></i>
+                            Beranda
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kategori.html">
+                            <i class="bi bi-grid"></i>
+                            Kategori
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="keranjang.html">
+                            <i class="bi bi-cart"></i>
+                            Keranjang
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tentangKami.html">
+                            <i class="bi bi-info-circle"></i>
+                            Tentang Kami
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kontak.html">
+                            <i class="bi bi-envelope"></i>
+                            Kontak
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- GARIS PEMISAH COPYRIGHT -->
+        <hr class="location-divider">
+
+        <!-- COPYRIGHT -->
+        <div class="location-bottom">
+
+            <p>
+                &copy; 2026 UMKM Digital Hub.
+                All Rights Reserved.
+            </p>
+
+            <p>
+                Mendukung perkembangan UMKM lokal Indonesia.
+            </p>
+
+        </div>
+
+    </div>
+</footer>
