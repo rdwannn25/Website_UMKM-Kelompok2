@@ -77,6 +77,7 @@
         .hero h1 {
             margin: 0 0 10px;
             color: #198754;
+            font-weight: bold;
         }
 
         .hero p {
@@ -247,19 +248,7 @@
         }
 
         .cart-count-badge {
-            display: inline-flex;
-            min-width: 20px;
-            height: 20px;
-            align-items: center;
-            justify-content: center;
             margin-left: 6px;
-            padding: 0 6px;
-            border-radius: 999px;
-            background: #fff;
-            color: #198754;
-            font-size: 12px;
-            font-weight: bold;
-            line-height: 1;
         }
 
         .cart-count-badge[hidden] {
@@ -412,11 +401,11 @@
             if (!badge) {
                 badge = document.createElement("span");
                 badge.className = "cart-count-badge";
-                badge.setAttribute("aria-label", "jumlah produk di keranjang");
                 tombolKeranjang.append(badge);
             }
 
-            badge.textContent = String(jumlah);
+            badge.textContent = "(" + jumlah + ")";
+            badge.setAttribute("aria-label", jumlah + " produk di keranjang");
             badge.hidden = jumlah === 0;
         }
 
