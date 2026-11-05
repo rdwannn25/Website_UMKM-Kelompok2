@@ -1,18 +1,23 @@
 <style>
+    /* FOOTER UTAMA */
+    
     .location-section {
         background-color: #198754;
         color: white;
         padding: 45px 0 20px;
     }
+    /* KOLOM FOOTER */
     
     .location-column {
         padding: 5px 25px;
         min-height: 180px;
     }
+    /* GARIS PEMISAH */
     
     .location-column:not(:first-child) {
         border-left: 1px solid rgba(255, 255, 255, 0.35);
     }
+    /* JUDUL BRAND */
     
     .location-brand {
         font-size: 21px;
@@ -25,6 +30,7 @@
     .location-title i {
         color: #a3e635;
     }
+    /* JUDUL KOLOM */
     
     .location-title {
         font-size: 16px;
@@ -33,15 +39,27 @@
         margin-bottom: 18px;
     }
     
+    .location-title a {
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    
+    .location-title a:hover {
+        color: #a3e635;
+    }
+    
     .location-title i {
         margin-right: 5px;
     }
+    /* DESKRIPSI */
     
     .location-text {
         color: #d1e7d8;
         font-size: 14px;
         line-height: 1.8;
     }
+    /* LINK MENU */
     
     .location-links {
         list-style: none;
@@ -68,6 +86,7 @@
     .location-links i {
         margin-right: 7px;
     }
+    /* INFORMASI LOKASI DAN KONTAK */
     
     .location-detail {
         display: flex;
@@ -97,11 +116,13 @@
     .location-detail a:hover {
         color: #a3e635;
     }
+    /* PEMBATAS */
     
     .location-divider {
         border-color: rgba(255, 255, 255, 0.3);
         margin: 30px 0 18px;
     }
+    /* COPYRIGHT */
     
     .location-bottom {
         display: flex;
@@ -115,6 +136,7 @@
         color: #d1e7d8;
         margin: 0;
     }
+    /* RESPONSIVE */
     
     @media (max-width: 768px) {
         .location-section {
@@ -151,12 +173,16 @@
                     Platform digital untuk mengenalkan dan memasarkan produk unggulan UMKM lokal.
                 </p>
 
+                <!-- LOKASI UMKM -->
                 <h5 class="location-title mt-4">
-                    <i class="bi bi-geo-alt-fill"></i> Lokasi UMKM
+                    <a href="lokasi.html">
+                        <i class="bi bi-geo-alt-fill"></i> Lokasi UMKM
+                    </a>
                 </h5>
 
                 <div class="location-detail">
                     <i class="bi bi-pin-map-fill"></i>
+
                     <a href="https://www.google.com/maps/dir/?api=1&destination=-6.937914%2C107.607281" target="_blank" rel="noopener noreferrer">
                         Jl. Moch. Toha No.77, Cigereleng,
                         Kec. Regol, Kota Bandung,
@@ -175,6 +201,7 @@
 
                 <div class="location-detail">
                     <i class="bi bi-whatsapp"></i>
+
                     <a href="https://wa.me/6282123373370" target="_blank" rel="noopener noreferrer">
                         WhatsApp: 0821-2337-3370
                     </a>
@@ -182,6 +209,7 @@
 
                 <div class="location-detail">
                     <i class="bi bi-envelope-fill"></i>
+
                     <a href="mailto:info@kantinkita.com">
                         info@kantinkita.com
                     </a>
@@ -189,6 +217,7 @@
 
                 <div class="location-detail">
                     <i class="bi bi-clock-fill"></i>
+
                     <span>
                         Senin - Jumat<br>
                         08.00 - 17.00 WIB
@@ -240,8 +269,10 @@
 
         </div>
 
+        <!-- GARIS PEMISAH COPYRIGHT -->
         <hr class="location-divider">
 
+        <!-- COPYRIGHT -->
         <div class="location-bottom">
 
             <p>
