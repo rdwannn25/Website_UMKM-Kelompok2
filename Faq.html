@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - UMKM Digital Hub</title>
+    <link rel="stylesheet" href="Asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Asset/css/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .faq-heading {
+            padding: 48px 0;
+            background-color: #e8f5ee;
+        }
+
+        .faq-heading h1 {
+            color: #198754;
+            font-weight: bold;
+        }
+
+        .faq-section {
+            padding: 48px 0;
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 12px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+            border-radius: 12px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .accordion-button {
+            padding: 18px 20px;
+            font-weight: 600;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: #198754;
+            background-color: #f1f8f4;
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            border-color: #198754;
+            box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+        }
+
+        .accordion-body {
+            color: #5c636a;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="faq-heading">
+            <div class="container text-center">
+                <p class="text-success fw-bold mb-2">PUSAT BANTUAN</p>
+                <h1>Pertanyaan yang Sering Diajukan</h1>
+                <p class="text-secondary mb-0">
+                    Temukan jawaban seputar produk dan cara menggunakan KantinKita.
+                </p>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="accordion faq-list" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqAnswerOne" aria-expanded="false" aria-controls="faqAnswerOne">
+                                Apa itu KantinKita?
+                            </button>
+                        </h2>
+                        <div id="faqAnswerOne" class="accordion-collapse collapse"
+                            aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                KantinKita adalah platform digital untuk mengenalkan dan membantu memasarkan produk
+                                unggulan dari pelaku UMKM lokal.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqAnswerTwo" aria-expanded="false" aria-controls="faqAnswerTwo">
+                                Bagaimana cara melihat produk UMKM?
+                            </button>
+                        </h2>
+                        <div id="faqAnswerTwo" class="accordion-collapse collapse"
+                            aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Buka halaman <a href="kategori.html" class="text-success">Kategori</a> untuk melihat
+                                produk yang tersedia. Anda juga dapat mencari produk menggunakan kolom pencarian
+                                dan memilih kategori yang sesuai.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqAnswerThree" aria-expanded="false" aria-controls="faqAnswerThree">
+                                Bagaimana cara menambahkan produk ke keranjang?
+                            </button>
+                        </h2>
+                        <div id="faqAnswerThree" class="accordion-collapse collapse"
+                            aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Pada halaman Kategori, pilih produk yang diinginkan lalu tekan tombol tambah ke
+                                keranjang. Produk pilihan dapat dilihat kembali melalui menu Keranjang.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqAnswerFour" aria-expanded="false" aria-controls="faqAnswerFour">
+                                Apakah saya bisa melakukan pembayaran melalui website?
+                            </button>
+                        </h2>
+                        <div id="faqAnswerFour" class="accordion-collapse collapse"
+                            aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Belum. Fitur keranjang dan pemesanan saat ini masih berupa simulasi untuk keperluan
+                                website. Pembayaran dan pengiriman belum diproses melalui situs ini.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeadingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqAnswerFive" aria-expanded="false" aria-controls="faqAnswerFive">
+                                Bagaimana cara menghubungi kami jika punya pertanyaan?
+                            </button>
+                        </h2>
+                        <div id="faqAnswerFive" class="accordion-collapse collapse"
+                            aria-labelledby="faqHeadingFive" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Kunjungi halaman <a href="kontak.html" class="text-success">Kontak</a> dan kirim pesan
+                                melalui formulir. Setelah formulir dikirim, pesan akan disiapkan untuk diteruskan
+                                melalui WhatsApp.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="Asset/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch("header.html")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Header tidak ditemukan");
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("header-container").innerHTML = data;
+            })
+            .catch(error => {
+                console.error("Header gagal dimuat:", error);
+            });
+
+        fetch("footer.html")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Footer tidak ditemukan");
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("footer-container").innerHTML = data;
+            })
+            .catch(error => {
+                console.error("Footer gagal dimuat:", error);
+            });
+    </script>
+</body>
+
+</html>
