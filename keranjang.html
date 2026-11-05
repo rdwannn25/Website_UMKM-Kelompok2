@@ -1,32 +1,150 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Keranjang - UMKM Digital Hub</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-
-<style>
-        .hero {
-            background-color: #e8f5ee;
-            padding: 65px 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Keranjang - UMKM Digital Hub</title>
+    <style>
+        :root {
+            font-family: Arial, sans-serif;
+            color: #212529;
+            background: #f8f9fa;
         }
 
-        .hero h1 {
-            font-weight: bold;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        a {
             color: #198754;
         }
 
-        .section-title {
-            font-weight: bold;
-            margin-bottom: 25px;
+        .container {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
         }
 
-        .product-card img {
-            height: 190px;
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+        }
+
+        .nav-content,
+        .nav-links,
+        .cart-layout,
+        .summary-row,
+        .product-row,
+        .quantity-control {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-content {
+            min-height: 64px;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            font-size: 19px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .hero {
+            padding: 54px 0;
+            background: #e8f5ee;
+        }
+
+        .hero h1 {
+            margin: 0 0 10px;
+            color: #198754;
+        }
+
+        .hero p {
+            margin: 0;
+            color: #6c757d;
+        }
+
+        .cart-layout {
+            align-items: flex-start;
+            gap: 24px;
+            padding-top: 40px;
+            padding-bottom: 48px;
+        }
+
+        .cart-panel {
+            flex: 1 1 65%;
+            min-width: 0;
+        }
+
+        .summary {
+            flex: 0 1 340px;
+        }
+
+        .panel {
+            padding: 24px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgb(0 0 0 / 7%);
+        }
+
+        .panel-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .panel h2,
+        .panel h3 {
+            margin: 0;
+        }
+
+        .product-row {
+            justify-content: space-between;
+            gap: 20px;
+            padding: 18px 0;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 0;
+        }
+
+        .product-image {
+            width: 100px;
+            height: 100px;
+            flex: 0 0 100px;
             object-fit: cover;
+            border-radius: 8px;
+            background: #e8f5ee;
+        }
+
+        .product-name {
+            margin: 0 0 6px;
+        }
+
+        .muted {
+            color: #6c757d;
         }
 
         .price {
@@ -34,194 +152,356 @@
             font-weight: bold;
         }
 
+        .quantity-control {
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .quantity-control button {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #198754;
+            border-radius: 6px;
+            background: #fff;
+            color: #198754;
+        }
+
+        .remove-button {
+            padding: 6px 10px;
+            border: 0;
+            background: transparent;
+            color: #dc3545;
+        }
+
+        .summary-row {
+            justify-content: space-between;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .summary-total {
+            padding-top: 16px;
+            border-top: 1px solid #dee2e6;
+            font-size: 18px;
+        }
+
+        .order-button,
+        .primary-link {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 16px;
+            border: 0;
+            border-radius: 6px;
+            background: #198754;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .order-button:hover,
+        .primary-link:hover {
+            background: #146c43;
+        }
+
+        .empty-cart {
+            padding: 36px 12px;
+            text-align: center;
+        }
+
+        .empty-cart h2 {
+            margin-bottom: 10px;
+            font-size: 40px;
+        }
+
+        .message {
+            margin-top: 14px;
+        }
+
+        .message.error {
+            color: #dc3545;
+        }
+
+        .message.success {
+            color: #198754;
+        }
+
+        footer {
+            padding: 24px 0;
+            background: #198754;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 760px) {
+            .nav-content,
+            .cart-layout {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .nav-content {
+                padding: 14px 0;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .summary {
+                flex-basis: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .panel {
+                padding: 18px;
+            }
+
+            .product-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .product-image {
+                width: 76px;
+                height: 76px;
+                flex-basis: 76px;
+            }
+        }
     </style>
 </head>
-
-
 <body>
+    <header class="navbar">
+        <nav class="container nav-content" aria-label="Navigasi utama">
+            <a class="brand" href="beranda.html">UMKM Digital Hub</a>
+            <div class="nav-links">
+                <a href="beranda.html">Beranda</a>
+                <a href="kategori.html">Kategori</a>
+                <a href="tentangKami.html">Tentang Kami</a>
+                <a href="kontak.html">Kontak</a>
+            </div>
+        </nav>
+    </header>
 
-    <!-- PEMANGGILAN HEADER -->
-    <div id="header-container"></div>
-    
-    <!-- Judul -->
-     <section class="hero">
-        <div class="container">
-            <h1>Keranjang Belanja</h1>
-            <p class="text-secondary">Periksa kembali produk yang sudah kamu pilih sebelum membuat pesanan.</p>
-        </div>
-   </section>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Keranjang Belanja</h1>
+                <p>Periksa kembali produk yang sudah kamu pilih sebelum membuat pesanan.</p>
+            </div>
+        </section>
 
-    <!-- Isi Keranjang -->
-    <div class="container py-5">
-    <div class="row g-4">
-
-        <div class="col-lg-8">
-            <div class="kotak-keranjang">
-                <div class="d-flex justify-content-between mb-3">
-                    <h5 class="fw-bold">Produk Pilihan</h5>
-                    <span id="jumlahItem" class="text-secondary">0 produk</span>
+        <div class="container cart-layout">
+            <section class="panel cart-panel" aria-labelledby="cart-title">
+                <div class="panel-heading">
+                    <h2 id="cart-title">Produk Pilihan</h2>
+                    <span id="jumlahItem" class="muted">0 produk</span>
                 </div>
                 <div id="daftarKeranjang"></div>
-            </div>
-        </div>
-    
-        <div class="col-lg-4">
-            <div class="ringkasan">
-                <h5 class="fw-bold mb-4">Ringkasan Belanja</h5>
-                <div class="d-flex justify-content-between mb-3">
-                    <span>Jumlah Produk</span><span id="totalItem">0</span>
+            </section>
+
+            <aside class="panel summary" aria-labelledby="summary-title">
+                <h2 id="summary-title">Ringkasan Belanja</h2>
+                <div class="summary-row">
+                    <span>Jumlah Produk</span>
+                    <span id="totalItem">0</span>
                 </div>
-                <div class="d-flex justify-content-between mb-3">
-                    <span>Total Harga</span><span id="totalHarga">Rp0</span>
+                <div class="summary-row">
+                    <span>Total Harga</span>
+                    <span id="totalHarga">Rp0</span>
                 </div>
-                <hr>
-                <div class="d-flex justify-content-between mb-4">
+                <div class="summary-row summary-total">
                     <strong>Total Belanja</strong>
-                    <strong class="harga" id="totalBayar">Rp0</strong>
+                    <strong id="totalBayar" class="price">Rp0</strong>
                 </div>
-                <button class="tombol-pesan" onclick="buatPesanan()">Buat Pesanan</button>
-                <p class="small text-secondary mt-3 mb-0">Pesanan ini hanya simulasi untuk keperluan website.</p>
-                <div id="pesan" class="small mt-3"></div>
-            </div>
+                <button id="tombolPesan" class="order-button" type="button">Buat Pesanan</button>
+                <p class="muted">Pesanan ini hanya simulasi untuk keperluan website.</p>
+                <div id="pesan" class="message" role="status" aria-live="polite"></div>
+            </aside>
         </div>
+    </main>
 
-    </div>
-    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 UMKM Digital Hub. Mendukung perkembangan UMKM lokal Indonesia.</p>
+        </div>
+    </footer>
 
-<!-- PEMANGGILAN FOOTER -->
-    <div id="footer-container"></div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Memanggil header dan footer -->
     <script>
+        const CART_KEY = "umkmCart";
+        const daftarKeranjang = document.getElementById("daftarKeranjang");
+        const pesan = document.getElementById("pesan");
 
-    <!-- Memanggil header.html -->
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header-container").innerHTML = data;
-            })
-            .catch(error => {
-                console.error("Header gagal dimuat:", error);
-            });
+        function getCart() {
+            const data = localStorage.getItem(CART_KEY);
+            if (!data) return [];
 
-    <!-- Memanggil footer.html -->
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("footer-container").innerHTML = data;
-            })
-            .catch(error => {
-                console.error("Footer gagal dimuat:", error);
-            });
+            const cart = JSON.parse(data);
+            if (!Array.isArray(cart)) {
+                throw new Error("Data keranjang tidak valid. Hapus data umkmCart dari penyimpanan browser lalu coba lagi.");
+            }
+            return cart;
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        }
+
+        function formatRupiah(nilai) {
+            return "Rp" + Number(nilai).toLocaleString("id-ID");
+        }
+
+        function tampilkanPesan(teks, jenis) {
+            pesan.textContent = teks;
+            pesan.className = "message" + (jenis ? " " + jenis : "");
+        }
+
+        function buatTombol(teks, kelas, aksi, label) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = teks;
+            button.className = kelas;
+            button.setAttribute("aria-label", label);
+            button.addEventListener("click", aksi);
+            return button;
+        }
+
+        function tampilkanKeranjang() {
+            try {
+                const keranjang = getCart();
+                let jumlah = 0;
+                let total = 0;
+                daftarKeranjang.replaceChildren();
+
+                const produkValid = keranjang.filter(item =>
+                    item &&
+                    item.id !== undefined &&
+                    item.name &&
+                    Number.isFinite(Number(item.price)) &&
+                    Number(item.price) >= 0
+                );
+
+                if (produkValid.length === 0) {
+                    const kosong = document.createElement("div");
+                    kosong.className = "empty-cart";
+                    kosong.innerHTML = '<h2 aria-hidden="true">🛒</h2><h3>Keranjang masih kosong</h3>';
+                    const keterangan = document.createElement("p");
+                    keterangan.className = "muted";
+                    keterangan.textContent = "Silakan pilih produk terlebih dahulu.";
+                    const tautan = document.createElement("a");
+                    tautan.className = "primary-link";
+                    tautan.href = "kategori.html";
+                    tautan.textContent = "Pilih Produk";
+                    kosong.append(keterangan, tautan);
+                    daftarKeranjang.append(kosong);
+                }
+
+                produkValid.forEach(item => {
+                    const qty = Math.max(1, Number(item.qty) || 1);
+                    const harga = Number(item.price);
+                    jumlah += qty;
+                    total += harga * qty;
+
+                    const baris = document.createElement("article");
+                    baris.className = "product-row";
+
+                    const info = document.createElement("div");
+                    info.className = "product-info";
+
+                    const gambar = document.createElement("img");
+                    gambar.className = "product-image";
+                    gambar.src = item.img || "";
+                    gambar.alt = item.name;
+                    gambar.addEventListener("error", () => gambar.removeAttribute("src"), { once: true });
+
+                    const detail = document.createElement("div");
+                    const nama = document.createElement("h3");
+                    nama.className = "product-name";
+                    nama.textContent = item.name;
+                    const toko = document.createElement("div");
+                    toko.className = "muted";
+                    toko.textContent = item.store || "UMKM Lokal";
+                    const hargaSatuan = document.createElement("div");
+                    hargaSatuan.className = "price";
+                    hargaSatuan.textContent = formatRupiah(harga);
+
+                    const kontrol = document.createElement("div");
+                    kontrol.className = "quantity-control";
+                    kontrol.append(
+                        buatTombol("-", "", () => ubahJumlah(item.id, -1), "Kurangi " + item.name),
+                        document.createTextNode(String(qty)),
+                        buatTombol("+", "", () => ubahJumlah(item.id, 1), "Tambah " + item.name),
+                        buatTombol("Hapus", "remove-button", () => hapusProduk(item.id), "Hapus " + item.name)
+                    );
+
+                    detail.append(nama, toko, hargaSatuan, kontrol);
+                    info.append(gambar, detail);
+
+                    const subtotal = document.createElement("strong");
+                    subtotal.className = "price";
+                    subtotal.textContent = formatRupiah(harga * qty);
+                    baris.append(info, subtotal);
+                    daftarKeranjang.append(baris);
+                });
+
+                document.getElementById("jumlahItem").textContent = jumlah + " produk";
+                document.getElementById("totalItem").textContent = String(jumlah);
+                document.getElementById("totalHarga").textContent = formatRupiah(total);
+                document.getElementById("totalBayar").textContent = formatRupiah(total);
+            } catch (error) {
+                tampilkanPesan("Keranjang gagal dimuat: " + error.message, "error");
+            }
+        }
+
+        function ubahJumlah(id, perubahan) {
+            try {
+                const cart = getCart();
+                const item = cart.find(produk => String(produk.id) === String(id));
+                if (item) item.qty = Math.max(1, (Number(item.qty) || 1) + perubahan);
+                saveCart(cart);
+                tampilkanPesan("", "");
+                tampilkanKeranjang();
+            } catch (error) {
+                tampilkanPesan("Jumlah produk gagal diperbarui: " + error.message, "error");
+            }
+        }
+
+        function hapusProduk(id) {
+            try {
+                saveCart(getCart().filter(item => String(item.id) !== String(id)));
+                tampilkanPesan("", "");
+                tampilkanKeranjang();
+            } catch (error) {
+                tampilkanPesan("Produk gagal dihapus: " + error.message, "error");
+            }
+        }
+
+        function buatPesanan() {
+            try {
+                if (getCart().length === 0) {
+                    tampilkanPesan("Keranjang masih kosong. Silakan pilih produk.", "error");
+                    return;
+                }
+
+                saveCart([]);
+                tampilkanKeranjang();
+                tampilkanPesan("Pesanan berhasil dibuat. Terima kasih!", "success");
+            } catch (error) {
+                tampilkanPesan("Pesanan gagal dibuat: " + error.message, "error");
+            }
+        }
+
+        document.getElementById("tombolPesan").addEventListener("click", buatPesanan);
+        tampilkanKeranjang();
     </script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-const products = [
-    { id: 1, name: "Keripik Pisang", price: 15000, store: "UMKM Lokal", img: "https://placehold.co/400x250/e8f5ee/198754?text=Keripik+Pisang" },
-    { id: 2, name: "Es Buah", price: 10000, store: "UMKM Lokal", img: "https://placehold.co/400x250/e8f5ee/198754?text=Es+Buah" },
-    { id: 3, name: "Kaos Lokal", price: 75000, store: "UMKM Lokal", img: "https://placehold.co/400x250/e8f5ee/198754?text=Kaos+Lokal" },
-    { id: 4, name: "Kerajinan Tangan", price: 50000, store: "UMKM Lokal", img: "https://placehold.co/400x250/e8f5ee/198754?text=Kerajinan+Tangan" }
-];
-
-function getCart() {
-    return JSON.parse(localStorage.getItem("umkmCart") || "[]");
-}
-
-function saveCart(cart) {
-    localStorage.setItem("umkmCart", JSON.stringify(cart));
-}
-
-function cartCount() {
-    return getCart().reduce((jumlah, item) => jumlah + item.qty, 0);
-}
-
-function formatRupiah(nilai) {
-    return "Rp" + nilai.toLocaleString("id-ID");
-}
-
-// Menampilkan isi keranjang
-function tampilkanKeranjang() {
-    let keranjang = getCart(), jumlah = 0, total = 0;
-
-    document.getElementById("daftarKeranjang").innerHTML = keranjang.length
-        ? keranjang.map(item => {
-        let p = products.find(x => x.id === item.id) || item;
-        if (!p.name || !p.price) return "";
-            jumlah += item.qty;
-            total += p.price * item.qty;
-
-            return `
-            <div class="produk">
-                <img src="${p.img}" alt="${p.name}"
-                     onerror="this.src='https://placehold.co/150x150?text=Produk'">
-                <div class="detail-produk">
-                    <h6 class="fw-bold mb-1">${p.name}</h6>
-                    <small class="text-secondary">${p.store}</small>
-                    <p class="harga mt-2 mb-2">${formatRupiah(p.price)}</p>
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="tombol-jumlah">
-                            <button onclick="ubahJumlah(${p.id},-1)">-</button>
-                            <span class="mx-2">${item.qty}</span>
-                            <button onclick="ubahJumlah(${p.id},1)">+</button>
-                        </div>
-                        <button class="hapus" onclick="hapusProduk(${p.id})">Hapus</button>
-                    </div>
-                </div>
-                <strong class="harga">${formatRupiah(p.price * item.qty)}</strong>
-            </div>`;
-        }).join("")
-        : `<div class="text-center py-5">
-            <h1>🛒</h1>
-            <h5>Keranjang masih kosong</h5>
-            <p class="text-secondary">Silakan pilih produk terlebih dahulu.</p>
-            <a href="kategori.html" class="btn btn-success">Pilih Produk</a>
-           </div>`;
-
-    document.getElementById("jumlahItem").textContent = jumlah + " produk";
-    document.getElementById("totalItem").textContent = jumlah;
-    document.getElementById("totalHarga").textContent = formatRupiah(total);
-    document.getElementById("totalBayar").textContent = formatRupiah(total);
-
-    document.querySelectorAll("[data-cart-count]").forEach(el => el.textContent = cartCount());
-}
-
-// Mengubah jumlah produk
-function ubahJumlah(id, angka) {
-    let cart = getCart(), item = cart.find(x => x.id === id);
-    if (item) item.qty = Math.max(1, item.qty + angka);
-    saveCart(cart);
-    tampilkanKeranjang();
-}
-
-// Menghapus produk
-function hapusProduk(id) {
-    saveCart(getCart().filter(x => x.id !== id));
-    tampilkanKeranjang();
-}
-
-// Membuat pesanan simulasi
-function buatPesanan() {
-    let pesan = document.getElementById("pesan");
-
-    if (!getCart().length) {
-        pesan.textContent = "Keranjang masih kosong. Silakan pilih produk.";
-        pesan.className = "text-danger small mt-3";
-        return;
-    }
-
-    saveCart([]);
-    tampilkanKeranjang();
-    pesan.textContent = "Pesanan berhasil dibuat. Terima kasih!";
-    pesan.className = "text-success small mt-3";
-}
-
-tampilkanKeranjang();
-</script>
-
 </body>
 </html>
