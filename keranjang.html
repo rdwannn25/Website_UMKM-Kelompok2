@@ -27,7 +27,7 @@
             color: #198754;
         }
 
-        .container {
+        main .container {
             width: min(1120px, calc(100% - 32px));
             margin: 0 auto;
         }
@@ -246,15 +246,24 @@
             color: #198754;
         }
 
-        footer {
-            padding: 24px 0;
-            background: #198754;
-            color: #fff;
-            text-align: center;
+        .cart-count-badge {
+            display: inline-flex;
+            min-width: 20px;
+            height: 20px;
+            align-items: center;
+            justify-content: center;
+            margin-left: 6px;
+            padding: 0 6px;
+            border-radius: 999px;
+            background: #fff;
+            color: #198754;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1;
         }
 
-        footer p {
-            margin: 0;
+        .cart-count-badge[hidden] {
+            display: none;
         }
 
         @media (max-width: 760px) {
@@ -336,7 +345,6 @@
         </div>
     </main>
 
-    
     <!-- FOOTER -->
     <div id="footer-container"></div>
 
@@ -360,6 +368,7 @@
             .then(data => {
 
                 document.getElementById("header-container").innerHTML = data;
+                updateCartBadge(jumlahKeranjangAktif);
 
             })
             .catch(error => {
@@ -367,7 +376,6 @@
                 console.error("Header gagal dimuat:", error);
 
             });
-
 
         // MEMANGGIL FOOTER
         fetch("footer.html")
@@ -394,6 +402,23 @@
         const CART_KEY = "umkmCart";
         const daftarKeranjang = document.getElementById("daftarKeranjang");
         const pesan = document.getElementById("pesan");
+        let jumlahKeranjangAktif = 0;
+
+        function updateCartBadge(jumlah) {
+            const tombolKeranjang = document.querySelector('#header-container a[href="keranjang.html"]');
+            if (!tombolKeranjang) return;
+
+            let badge = tombolKeranjang.querySelector(".cart-count-badge");
+            if (!badge) {
+                badge = document.createElement("span");
+                badge.className = "cart-count-badge";
+                badge.setAttribute("aria-label", "jumlah produk di keranjang");
+                tombolKeranjang.append(badge);
+            }
+
+            badge.textContent = String(jumlah);
+            badge.hidden = jumlah === 0;
+        }
 
         function getCart() {
             const data = localStorage.getItem(CART_KEY);
@@ -511,6 +536,8 @@
                 document.getElementById("totalItem").textContent = String(jumlah);
                 document.getElementById("totalHarga").textContent = formatRupiah(total);
                 document.getElementById("totalBayar").textContent = formatRupiah(total);
+                jumlahKeranjangAktif = jumlah;
+                updateCartBadge(jumlahKeranjangAktif);
             } catch (error) {
                 tampilkanPesan("Keranjang gagal dimuat: " + error.message, "error");
             }
