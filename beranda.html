@@ -1,8 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>UMKM Digital Hub - Beranda</title>
 
     <!-- Bootstrap CSS -->
@@ -11,12 +14,17 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
         }
 
+        /* NAVBAR */
         .navbar-brand {
             font-weight: bold;
             color: #198754;
@@ -31,6 +39,7 @@
             color: #198754;
         }
 
+        /* HERO */
         .hero {
             background-color: #e8f5ee;
             padding: 65px 0;
@@ -41,64 +50,81 @@
             color: #198754;
         }
 
+        /* JUDUL SECTION */
         .section-title {
             font-weight: bold;
             margin-bottom: 25px;
         }
 
-        .category-card {
+        /* STATISTIK */
+        .statistics {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+        .stat-card {
             background-color: white;
-            padding: 25px 15px;
+            border: none;
             border-radius: 10px;
-            text-align: center;
-            text-decoration: none;
-            color: #333;
+            padding: 22px;
             height: 100%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
 
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        .stat-card:hover {
+            transform: translateY(-4px);
         }
 
-        .category-card i {
-            font-size: 35px;
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: #e8f5ee;
             color: #198754;
+            font-size: 24px;
         }
 
-        .product-card {
+        .stat-card h3 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #198754;
+            margin-top: 15px;
+        }
+
+        .stat-card p {
+            color: #6c757d;
+            margin-bottom: 0;
+        }
+
+        /* GRAFIK DAN TABEL */
+        .dashboard-card {
+            background-color: white;
             border: none;
             border-radius: 10px;
-            overflow: hidden;
-            height: 100%;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        .product-card img {
-            height: 190px;
-            object-fit: cover;
-        }
-
-        .price {
-            color: #198754;
+        .dashboard-card h5 {
             font-weight: bold;
+            margin-bottom: 20px;
         }
 
-        footer {
-            background-color: #198754;
-            color: white;
-            padding: 30px 0;
+        .table thead th {
+            background-color: #e8f5ee;
+            color: #198754;
+            white-space: nowrap;
         }
 
-        footer a {
-            color: white;
-            text-decoration: none;
+        .table td {
+            vertical-align: middle;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
+        /* LOKASI */
         .locations {
             padding: 48px 0;
             background-color: #f3faf5;
@@ -122,6 +148,7 @@
             line-height: 1.5;
         }
 
+        /* TOMBOL LOKASI MELAYANG */
         .location-button {
             position: fixed;
             right: 24px;
@@ -137,8 +164,8 @@
             color: white;
             font-size: 24px;
             text-decoration: none;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
-            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+            transition: 0.2s;
         }
 
         .location-button:hover {
@@ -151,17 +178,37 @@
             outline: 3px solid #a3cfbb;
             outline-offset: 3px;
         }
-        
+
+        /* RESPONSIVE */
+        @media (max-width: 576px) {
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .dashboard-card {
+                padding: 18px;
+            }
+
+            .stat-card {
+                padding: 18px;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
-     <!-- HEADER -->
+    <!-- HEADER -->
     <div id="header-container"></div>
+
 
     <!-- BERANDA / HERO -->
     <section class="hero">
+
         <div class="container">
 
             <div class="row align-items-center">
@@ -194,52 +241,351 @@
             </div>
 
         </div>
+
     </section>
 
-    <!-- TOMBOL LOKASI MELAYANG -->
-    <a href="#locations" 
-    class="location-button"
-    aria-label="Lihat lokasi UMKM"
-    title="Lihat lokasi">
-        <i class="bi bi-geo-alt-fill"></i>
-    </a>
 
-    <!-- PEMANGGILAN FOOTER -->
+    <!-- DASHBOARD STATISTIK -->
+    <section class="statistics">
+
+        <div class="container">
+
+            <!-- JUDUL -->
+            <div class="text-center mb-4">
+
+                <h2 class="section-title">
+                    Statistik UMKM
+                </h2>
+
+                <p class="text-muted">
+                    Informasi penjualan dan perkembangan produk UMKM.
+                </p>
+
+            </div>
+
+
+            <!-- KARTU STATISTIK -->
+            <div class="row g-4 mb-4">
+
+                <!-- PRODUK TERJUAL -->
+                <div class="col-md-4">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+
+                        <h3>1.250</h3>
+
+                        <p>Produk Terjual</p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOTAL PRODUK -->
+                <div class="col-md-4">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-shop"></i>
+                        </div>
+
+                        <h3>10</h3>
+
+                        <p>Total Produk</p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOTAL TRANSAKSI -->
+                <div class="col-md-4">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-receipt"></i>
+                        </div>
+
+                        <h3>320</h3>
+
+                        <p>Total Transaksi</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRAFIK PENJUALAN -->
+            <div class="dashboard-card mb-4">
+
+                <h5>
+                    <i class="bi bi-bar-chart-fill text-success"></i>
+                    Grafik Penjualan Produk
+                </h5>
+
+                <div id="salesChart" style="height: 350px;"></div>
+
+            </div>
+
+
+            <!-- TABEL DATA PENJUALAN -->
+            <div class="dashboard-card">
+
+                <h5>
+                    <i class="bi bi-table text-success"></i>
+                    Data Penjualan Produk
+                </h5>
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-hover">
+
+                        <thead>
+
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Produk</th>
+                                <th>UMKM</th>
+                                <th>Produk Terjual</th>
+                                <th>Total Pendapatan</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td>Ayam Geprek</td>
+                                <td>Kedai Mbak E</td>
+                                <td>250</td>
+                                <td>Rp3.750.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>Soto Ayam</td>
+                                <td>Kedai Mbak E</td>
+                                <td>180</td>
+                                <td>Rp3.600.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>Nasi Gudeg</td>
+                                <td>Kantin Gudeg</td>
+                                <td>200</td>
+                                <td>Rp3.400.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>Pop Ice</td>
+                                <td>Jajan di Teteh</td>
+                                <td>350</td>
+                                <td>Rp1.750.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td>Kopi Susu</td>
+                                <td>Jajan di Teteh</td>
+                                <td>270</td>
+                                <td>Rp2.700.000</td>
+                            </tr>
+
+                        </tbody>
+
+                        <tfoot>
+
+                            <tr class="fw-bold">
+                                <td colspan="3" class="text-end">
+                                    Total
+                                </td>
+                                <td>1.250</td>
+                                <td>Rp15.200.000</td>
+                            </tr>
+
+                        </tfoot>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    
+    <!-- FOOTER -->
     <div id="footer-container"></div>
 
-    <!--LOKASI BUTTON -->
-    <a href="lokasi.html" class="location-button" aria-label="Lihat lokasi UMKM" title="Lihat lokasi">
+
+    <!-- TOMBOL LOKASI MELAYANG -->
+    <a href="lokasi.html"
+       class="location-button"
+       aria-label="Lihat lokasi UMKM"
+       title="Lihat lokasi">
+
         <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+
     </a>
 
-    <!-- Bootstrap JS -->
+
+    <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Memanggil header dan footer -->
+
+
+    <!-- JAVASCRIPT -->
     <script>
 
-    <!-- Memanggil header.html -->
+        // MEMANGGIL HEADER
         fetch("header.html")
-            .then(response => response.text())
+            .then(response => {
+
+                if (!response.ok) {
+                    throw new Error("Header tidak ditemukan");
+                }
+
+                return response.text();
+
+            })
             .then(data => {
+
                 document.getElementById("header-container").innerHTML = data;
+
             })
             .catch(error => {
+
                 console.error("Header gagal dimuat:", error);
+
             });
 
 
-    <!-- Memanggil footer.html -->
-    
+        // MEMANGGIL FOOTER
         fetch("footer.html")
-            .then(response => response.text())
+            .then(response => {
+
+                if (!response.ok) {
+                    throw new Error("Footer tidak ditemukan");
+                }
+
+                return response.text();
+
+            })
             .then(data => {
+
                 document.getElementById("footer-container").innerHTML = data;
+
             })
             .catch(error => {
+
                 console.error("Footer gagal dimuat:", error);
+
             });
+
+
+        // GRAFIK PENJUALAN HIGHCHARTS
+        Highcharts.chart('salesChart', {
+
+            chart: {
+                type: 'column',
+                backgroundColor: 'transparent'
+            },
+
+            title: {
+                text: null
+            },
+
+            subtitle: {
+                text: 'Data penjualan selama 7 bulan'
+            },
+
+            xAxis: {
+
+                categories: [
+                    'Mei',
+                    'Juni',
+                    'Juli',
+                    'Agustus',
+                    'September',
+                    'Oktober',
+                    'November'
+                ],
+
+                crosshair: true
+
+            },
+
+            yAxis: {
+
+                min: 0,
+
+                title: {
+                    text: 'Jumlah Produk Terjual'
+                }
+
+            },
+
+            tooltip: {
+
+                valueSuffix: ' produk'
+
+            },
+
+            plotOptions: {
+
+                column: {
+
+                    borderRadius: 5,
+
+                    pointPadding: 0.2,
+
+                    borderWidth: 0
+
+                }
+
+            },
+
+            series: [
+
+                {
+
+                    name: 'Produk Terjual',
+
+                    data: [
+                        120,
+                        150,
+                        180,
+                        200,
+                        170,
+                        210,
+                        220
+                    ],
+
+                    color: '#198754'
+
+                }
+
+            ],
+
+            credits: {
+                enabled: false
+            }
+
+        });
+
     </script>
 
 </body>
+
 </html>
