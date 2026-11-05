@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>UMKM Digital Hub - Beranda</title>
-    
+
     <!-- Bootstrap CSS Lokal Versi 5.3.3 -->
+
     <link rel="stylesheet" href="Asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="Asset/css/bootstrap-icons.min.css">
 
     <!-- Highcharts Lokal Versi 12.4.0 -->
+
     <script src="Asset/js/highcharts.js"></script>
 
     <style>
@@ -168,142 +168,95 @@
             }
         }
     </style>
-
 </head>
-
 <body>
 
     <!-- HEADER -->
     <div id="header-container"></div>
 
-
     <!-- HERO -->
     <section class="hero">
-
         <div class="container">
-
             <div class="row align-items-center">
-
                 <div class="col-md-7">
-
                     <h1>Selamat Datang di UMKM Digital Hub</h1>
-
                     <p class="mt-3">
                         Temukan berbagai produk unggulan dari pelaku
                         UMKM lokal. Dukung produk dalam negeri dan
                         kembangkan usaha lokal bersama kami.
                     </p>
-
                     <a href="kategori.html" class="btn btn-success mt-2">
                         Jelajahi Produk
                     </a>
-
                 </div>
-
                 <div class="col-md-5 text-center mt-4 mt-md-0">
-
                     <img
-                        src="https://kliklegal.com/wp-content/uploads/2023/04/Sumber-Pajakku-1.webp"
+                        src="Kantinsehati.jpeg"
                         class="img-fluid rounded"
                         alt="UMKM Digital Hub">
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
     <!-- DASHBOARD STATISTIK -->
-    <section class="statistics">
 
+    <section class="statistics">
         <div class="container">
 
             <!-- JUDUL -->
-            <div class="text-center mb-4">
 
+            <div class="text-center mb-4">
                 <h2 class="section-title">
                     Statistik UMKM
                 </h2>
-
                 <p class="text-muted">
                     Informasi penjualan dan perkembangan produk UMKM.
                 </p>
-
             </div>
-
 
             <!-- KARTU STATISTIK -->
+
             <div class="row g-4 mb-4">
-
                 <div class="col-md-4">
-
                     <div class="stat-card">
-
                         <p class="stat-label">Produk Terjual</p>
-
-                        <h3>1.250</h3>
-
+                        <h3 id="totalProdukTerjual">0</h3>
                     </div>
-
                 </div>
-
-
                 <div class="col-md-4">
-
                     <div class="stat-card">
-
                         <p class="stat-label">Total Produk</p>
-
                         <h3>10</h3>
-
                     </div>
-
                 </div>
-
-
                 <div class="col-md-4">
-
                     <div class="stat-card">
-
                         <p class="stat-label">Total Transaksi</p>
-
-                        <h3>320</h3>
-
+                        <h3 id="totalTransaksi">0</h3>
                     </div>
-
                 </div>
-
             </div>
 
-
             <!-- GRAFIK PENJUALAN -->
-            <div class="dashboard-card mb-4">
 
+            <div class="dashboard-card mb-4">
                 <h5>
                     Grafik Penjualan Produk
                 </h5>
-
                 <div id="salesChart" style="height: 350px;"></div>
-
+                <p id="salesStatus" class="text-danger mb-0" role="status" hidden></p>
             </div>
 
-
             <!-- TABEL DATA PENJUALAN -->
-            <div class="dashboard-card">
 
+            <div class="dashboard-card">
                 <h5>
                     Data Penjualan Produk
                 </h5>
-
                 <div class="table-responsive">
-
                     <table class="table table-bordered table-hover">
-
                         <thead>
-
                             <tr>
                                 <th>No</th>
                                 <th>Nama Produk</th>
@@ -311,234 +264,254 @@
                                 <th>Produk Terjual</th>
                                 <th>Total Pendapatan</th>
                             </tr>
-
                         </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Ayam Geprek</td>
-                                <td>Kedai Mbak E</td>
-                                <td>250</td>
-                                <td>Rp3.750.000</td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>Soto Ayam</td>
-                                <td>Kedai Mbak E</td>
-                                <td>180</td>
-                                <td>Rp3.600.000</td>
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Nasi Gudeg</td>
-                                <td>Kantin Gudeg</td>
-                                <td>200</td>
-                                <td>Rp3.400.000</td>
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>Pop Ice</td>
-                                <td>Jajan di Teteh</td>
-                                <td>350</td>
-                                <td>Rp1.750.000</td>
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>Kopi Susu</td>
-                                <td>Jajan di Teteh</td>
-                                <td>270</td>
-                                <td>Rp2.700.000</td>
-                            </tr>
-
-                        </tbody>
-
+                        <tbody id="salesTableBody"></tbody>
                         <tfoot>
-
                             <tr class="fw-bold">
                                 <td colspan="3" class="text-end">
                                     Total
                                 </td>
-                                <td>1.250</td>
-                                <td>Rp15.200.000</td>
+                                <td id="totalProdukTabel">0</td>
+                                <td id="totalPendapatan">Rp0</td>
                             </tr>
-
                         </tfoot>
-
                     </table>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
     <!-- FOOTER -->
+
     <div id="footer-container"></div>
 
-
     <!-- TOMBOL LOKASI -->
-    <a href="lokasi.html"
-       class="location-button"
-       title="Lihat lokasi UMKM"
-       aria-label="Lihat lokasi UMKM">
+
+    <a
+        href="lokasi.html"
+        class="location-button"
+        title="Lihat lokasi UMKM"
+        aria-label="Lihat lokasi UMKM">
         <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
     </a>
 
-
     <!-- Bootstrap JS Lokal Versi 5.3.3 -->
+
     <script src="Asset/js/bootstrap.bundle.min.js"></script>
 
-
     <!-- JAVASCRIPT -->
-    <script>
 
+    <script>
         // MEMANGGIL HEADER
         fetch("header.html")
             .then(response => {
-
                 if (!response.ok) {
                     throw new Error("Header tidak ditemukan");
                 }
-
                 return response.text();
-
             })
             .then(data => {
-
                 document.getElementById("header-container").innerHTML = data;
-
             })
             .catch(error => {
-
                 console.error("Header gagal dimuat:", error);
-
             });
-
 
         // MEMANGGIL FOOTER
         fetch("footer.html")
             .then(response => {
-
                 if (!response.ok) {
                     throw new Error("Footer tidak ditemukan");
                 }
-
                 return response.text();
-
             })
             .then(data => {
-
                 document.getElementById("footer-container").innerHTML = data;
-
             })
             .catch(error => {
-
                 console.error("Footer gagal dimuat:", error);
-
             });
 
+        const SALES_KEY = "umkmSales";
+        const namaBulan = new Intl.DateTimeFormat("id-ID", { month: "long" });
+        const formatAngka = nilai => Number(nilai).toLocaleString("id-ID");
+        const formatRupiah = nilai => "Rp" + formatAngka(nilai);
+        const salesStatus = document.getElementById("salesStatus");
+        let salesChart = null;
 
-        // GRAFIK PENJUALAN HIGHCHARTS
-        Highcharts.chart('salesChart', {
+        function bacaPenjualan() {
+            const data = localStorage.getItem(SALES_KEY);
+            if (!data) return [];
 
-            chart: {
-                type: 'column',
-                backgroundColor: 'transparent'
-            },
-
-            title: {
-                text: null
-            },
-
-            subtitle: {
-                text: 'Data penjualan selama 7 bulan'
-            },
-
-            xAxis: {
-
-                categories: [
-                    'Mei',
-                    'Juni',
-                    'Juli',
-                    'Agustus',
-                    'September',
-                    'Oktober',
-                    'November'
-                ],
-
-                crosshair: true
-
-            },
-
-            yAxis: {
-
-                min: 0,
-
-                title: {
-                    text: 'Jumlah Produk Terjual'
-                }
-
-            },
-
-            tooltip: {
-
-                valueSuffix: ' produk'
-
-            },
-
-            plotOptions: {
-
-                column: {
-
-                    borderRadius: 5,
-
-                    pointPadding: 0.2,
-
-                    borderWidth: 0
-
-                }
-
-            },
-
-            series: [
-
-                {
-
-                    name: 'Produk Terjual',
-
-                    data: [
-                        120,
-                        150,
-                        180,
-                        200,
-                        170,
-                        210,
-                        220
-                    ],
-
-                    color: '#198754'
-
-                }
-
-            ],
-
-            credits: {
-                enabled: false
+            const penjualan = JSON.parse(data);
+            if (!Array.isArray(penjualan)) {
+                throw new Error("Data penjualan tidak valid.");
             }
 
+            penjualan.forEach(pesanan => {
+                if (
+                    !pesanan ||
+                    !Number.isFinite(Date.parse(pesanan.createdAt)) ||
+                    !Array.isArray(pesanan.items)
+                ) {
+                    throw new Error("Format riwayat penjualan tidak valid.");
+                }
+
+                pesanan.items.forEach(item => {
+                    if (
+                        !item ||
+                        !item.name ||
+                        !Number.isFinite(Number(item.price)) ||
+                        !Number.isFinite(Number(item.qty)) ||
+                        Number(item.qty) < 1
+                    ) {
+                        throw new Error("Detail produk pada riwayat penjualan tidak valid.");
+                    }
+                });
+            });
+
+            return penjualan;
+        }
+
+        function perbaruiDashboard() {
+            try {
+                const penjualan = bacaPenjualan();
+                const bulan = [];
+                const totalBulanan = new Map();
+                const ringkasanProduk = new Map();
+                let jumlahProdukTerjual = 0;
+                let totalPendapatan = 0;
+
+                for (let offset = 6; offset >= 0; offset--) {
+                    const tanggal = new Date();
+                    tanggal.setDate(1);
+                    tanggal.setMonth(tanggal.getMonth() - offset);
+                    const kunci =
+                        tanggal.getFullYear() +
+                        "-" +
+                        String(tanggal.getMonth() + 1).padStart(2, "0");
+
+                    bulan.push({ key: kunci, label: namaBulan.format(tanggal) });
+                    totalBulanan.set(kunci, 0);
+                }
+
+                penjualan.forEach(pesanan => {
+                    const tanggal = new Date(pesanan.createdAt);
+                    const kunciBulan =
+                        tanggal.getFullYear() +
+                        "-" +
+                        String(tanggal.getMonth() + 1).padStart(2, "0");
+
+                    pesanan.items.forEach(item => {
+                        const qty = Number(item.qty);
+                        const harga = Number(item.price);
+                        const kunciProduk = [
+                            item.id,
+                            item.name,
+                            item.store || "UMKM Lokal",
+                        ].join("|");
+                        const ringkasan = ringkasanProduk.get(kunciProduk) || {
+                            name: item.name,
+                            store: item.store || "UMKM Lokal",
+                            qty: 0,
+                            revenue: 0,
+                        };
+
+                        ringkasan.qty += qty;
+                        ringkasan.revenue += qty * harga;
+                        ringkasanProduk.set(kunciProduk, ringkasan);
+                        jumlahProdukTerjual += qty;
+                        totalPendapatan += qty * harga;
+
+                        if (totalBulanan.has(kunciBulan)) {
+                            totalBulanan.set(kunciBulan, totalBulanan.get(kunciBulan) + qty);
+                        }
+                    });
+                });
+
+                document.getElementById("totalProdukTerjual").textContent =
+                    formatAngka(jumlahProdukTerjual);
+                document.getElementById("totalTransaksi").textContent =
+                    formatAngka(penjualan.length);
+                document.getElementById("totalProdukTabel").textContent =
+                    formatAngka(jumlahProdukTerjual);
+                document.getElementById("totalPendapatan").textContent =
+                    formatRupiah(totalPendapatan);
+
+                const tbody = document.getElementById("salesTableBody");
+                tbody.replaceChildren();
+
+                if (ringkasanProduk.size === 0) {
+                    const barisKosong = document.createElement("tr");
+                    const pesanKosong = document.createElement("td");
+                    pesanKosong.colSpan = 5;
+                    pesanKosong.className = "text-center text-muted";
+                    pesanKosong.textContent =
+                        "Belum ada penjualan. Pesanan yang dikonfirmasi akan muncul di sini.";
+                    barisKosong.append(pesanKosong);
+                    tbody.append(barisKosong);
+                } else {
+                    Array.from(ringkasanProduk.values()).forEach((item, index) => {
+                        const baris = document.createElement("tr");
+                        const nilaiKolom = [
+                            index + 1,
+                            item.name,
+                            item.store,
+                            formatAngka(item.qty),
+                            formatRupiah(item.revenue),
+                        ];
+
+                        nilaiKolom.forEach(nilai => {
+                            const kolom = document.createElement("td");
+                            kolom.textContent = String(nilai);
+                            baris.append(kolom);
+                        });
+                        tbody.append(baris);
+                    });
+                }
+
+                if (!salesChart) {
+                    salesChart = Highcharts.chart("salesChart", {
+                        chart: { type: "column", backgroundColor: "transparent" },
+                        title: { text: null },
+                        subtitle: {
+                            text: "Jumlah produk dari pesanan yang dikonfirmasi selama 7 bulan terakhir",
+                        },
+                        xAxis: {
+                            categories: bulan.map(item => item.label),
+                            crosshair: true,
+                        },
+                        yAxis: { min: 0, title: { text: "Jumlah Produk Terjual" } },
+                        tooltip: { valueSuffix: " produk" },
+                        plotOptions: {
+                            column: { borderRadius: 5, pointPadding: 0.2, borderWidth: 0 },
+                        },
+                        series: [
+                            {
+                                name: "Produk Terjual",
+                                data: bulan.map(item => totalBulanan.get(item.key)),
+                                color: "#198754",
+                            },
+                        ],
+                        credits: { enabled: false },
+                    });
+                } else {
+                    salesChart.xAxis[0].setCategories(bulan.map(item => item.label), false);
+                    salesChart.series[0].setData(bulan.map(item => totalBulanan.get(item.key)), true);
+                }
+
+                salesStatus.hidden = true;
+                salesStatus.textContent = "";
+            } catch (error) {
+                salesStatus.textContent = "Data penjualan gagal dimuat: " + error.message;
+                salesStatus.hidden = false;
+                console.error("Data penjualan gagal dimuat:", error);
+            }
+        }
+        perbaruiDashboard();
+        window.addEventListener("storage", event => {
+            if (event.key === SALES_KEY) perbaruiDashboard();
         });
-
     </script>
-
 </body>
-
 </html>
