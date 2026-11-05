@@ -25,11 +25,6 @@
             color: #198754;
         }
 
-        .section-title {
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-
         .category-card {
             background-color: white;
             padding: 25px 15px;
@@ -70,44 +65,6 @@
 
         /* STYLE HALAMAN KONTAK */
 
-        .contact-info {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            height: 100%;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .contact-icon {
-            width: 45px;
-            height: 45px;
-            background-color: #e8f5ee;
-            color: #198754;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .contact-item h6 {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .contact-item p {
-            color: #666;
-            margin-bottom: 0;
-        }
-
         .contact-form {
             background-color: white;
             padding: 30px;
@@ -115,7 +72,6 @@
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
         }
 
-        .contact-info h4,
         .contact-form h4 {
             color: #198754;
         }
@@ -139,14 +95,8 @@
             padding: 12px 25px;
         }
 
-        .contact-heading {
-            background-color: #e8f5ee;
-            padding: 30px 0;
-            margin-bottom: 48px;
-        }
-
         .contact-section {
-            margin-bottom: 48px;
+            margin: 48px 0;
         }
     </style>
 </head>
@@ -159,117 +109,11 @@
     <!-- MAIN -->
     <main>
 
-        <!-- INFORMASI KONTAK -->
-        <section class="my-7 contact-section">
-            <div class="contact-heading">
-                <div class="container text-center">
-
-                    <p class="text-success fw-bold mb-2">
-                        HUBUNGI KAMI
-                    </p>
-
-                    <h2 class="section-title">
-                        Mari Terhubung dengan Kami
-                    </h2>
-
-                    <p class="text-secondary mx-auto" style="max-width: 750px;">
-                        Kami siap membantu Anda mendapatkan informasi
-                        mengenai produk, layanan, maupun kerja sama.
-                        Jangan ragu untuk menghubungi tim UMKM Digital Hub
-                        melalui informasi kontak berikut.
-                    </p>
-
-                </div>
-            </div>
-
+        <!-- FORMULIR KONTAK -->
+        <section class="contact-section">
             <div class="container">
-                <div class="row g-4">
-
-                    <!-- KOLOM INFORMASI -->
-                    <div class="col-md-5">
-
-                        <div class="contact-info">
-
-                            <h4 class="fw-bold mb-3">
-                                Informasi Kontak
-                            </h4>
-
-                            <p class="text-secondary mb-4">
-                                Silakan hubungi kami melalui kontak
-                                yang tersedia.
-                            </p>
-
-                            <!-- WHATSAPP -->
-                            <div class="contact-item">
-
-                                <div class="contact-icon">
-                                    <i class="bi bi-whatsapp"></i>
-                                </div>
-
-                                <div>
-                                    <h6>WhatsApp</h6>
-                                    <p>082123373370</p>
-                                    <a href="https://wa.me/6282123373370" class="text-success text-decoration-none">
-                                        Hubungi Sekarang
-                                    </a>
-                                </div>
-
-                            </div>
-
-                            <!-- EMAIL -->
-                            <div class="contact-item">
-
-                                <div class="contact-icon">
-                                    <i class="bi bi-envelope"></i>
-                                </div>
-
-                                <div>
-                                    <h6>Email</h6>
-                                    <p>info@umkmdigitalhub.com</p>
-                                </div>
-
-                            </div>
-
-                            <!-- ALAMAT -->
-                            <div class="contact-item">
-
-                                <div class="contact-icon">
-                                    <i class="bi bi-geo-alt"></i>
-                                </div>
-
-                                <div>
-                                    <h6>Alamat Kantor</h6>
-                                    <p>
-                                        Bandung, Jawa Barat, Indonesia.
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <!-- JAM OPERASIONAL -->
-                            <div class="contact-item">
-
-                                <div class="contact-icon">
-                                    <i class="bi bi-clock"></i>
-                                </div>
-
-                                <div>
-                                    <h6>Jam Operasional</h6>
-                                    <p>
-                                        Senin - Jumat<br>
-                                        08.00 - 17.00 WIB
-                                    </p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- FORMULIR KONTAK -->
-                    <div class="col-md-7">
-
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
                         <div class="contact-form">
 
                             <h4 class="fw-bold mb-2">
@@ -392,7 +236,7 @@
             const subject = document.getElementById("subject").value;
             const pesan = document.getElementById("pesan").value;
 
-            const nomorWhatsApp = "6281234567890";
+            const nomorWhatsApp = "6282123373370";
 
             const isiPesan =
                 "Halo UMKM Digital Hub!" +
