@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #198754;
+        }
+
+        .nav-link {
+            color: #333;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #198754;
+        }
 
         .hero {
             background-color: #e8f5ee;
@@ -74,12 +92,114 @@
             --bs-btn-hover-border-color: #198754;
         }
 
+        footer {
+            background-color: #198754;
+            color: white;
+            padding: 30px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .locations {
+            padding: 48px 0;
+            background-color: #f3faf5;
+        }
+
+        .location-details {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .location-details h2 {
+            margin-bottom: 10px;
+            color: #183b2b;
+            font-weight: 700;
+        }
+
+        .location-details p {
+            margin-bottom: 0;
+            color: #66736b;
+            line-height: 1.5;
+        }
+
+        .location-button {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 1030;
+            display: flex;
+            width: 56px;
+            height: 56px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #198754;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .location-button:hover {
+            background-color: #146c43;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .location-button:focus-visible {
+            outline: 3px solid #a3cfbb;
+            outline-offset: 3px;
+        }
     </style>
 </head>
 
 <body>
-    <!-- HEADER -->
-    <div id="header-container"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="beranda.html">
+                <i class="bi bi-shop"></i> UMKM Digital Hub
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="beranda.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="kategori.html">Kategori</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentangKami.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Kontak</a>
+                    </li>
+                </ul>
+
+                <a href="keranjang.html" class="btn btn-success">
+                    <i class="bi bi-cart"></i>
+                    Keranjang (<span id="jumlahKeranjang">0</span>)
+                </a>
+            </div>
+        </div>
+    </nav>
 
     <!-- HERO -->
     <section class="hero">
@@ -104,209 +224,349 @@
     </section>
 
     <main class="container my-5">
-        <!-- KATEGORI -->
+
+        <!-- KATEGORI UTAMA -->
         <h3 class="section-title">Pilih Kategori</h3>
 
-        <div class="row g-3 mb-5">
-            <div class="col-md-6">
+        <div class="row g-3 mb-5" id="bagianKategori">
+
+            <div class="col-md-4">
+                <div class="card kategori-card shadow-sm p-4 text-center h-100">
+                    <i class="bi bi-shop fs-1"></i>
+                    <h5 class="mt-2">Kedai Mbak E</h5>
+                    <p class="text-muted mb-0">Pilihan menu dari Kedai Mbak E.</p>
+                    <button class="btn btn-outline-primary mt-3"
+                        onclick="bukaKategori('kedai-mbak-e', 'Kedai Mbak E')">
+                        Lihat Produk
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card kategori-card shadow-sm p-4 text-center h-100">
+                    <i class="bi bi-shop fs-1"></i>
+                    <h5 class="mt-2">Kantin Gudeg</h5>
+                    <p class="text-muted mb-0">Pilihan menu dari Kantin Gudeg.</p>
+                    <button class="btn btn-outline-primary mt-3"
+                        onclick="bukaKategori('kantin-gudeg', 'Kantin Gudeg')">
+                        Lihat Produk
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
                 <div class="card kategori-card shadow-sm p-4 text-center h-100">
                     <i class="bi bi-basket-fill fs-1"></i>
-                    <h5 class="mt-2">Makanan</h5>
-                    <p class="text-muted mb-0">Berbagai makanan lokal pilihan.</p>
+                    <h5 class="mt-2">Jajan di Teteh</h5>
+                    <p class="text-muted mb-0">Aneka jajanan dan minuman.</p>
                     <button class="btn btn-outline-primary mt-3"
-                        onclick="filterKategori('makanan')">
-                        Lihat Makanan
+                        onclick="bukaKategori('jajan-di-teteh', 'Jajan di Teteh')">
+                        Lihat Produk
                     </button>
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div class="card kategori-card shadow-sm p-4 text-center h-100">
-                    <i class="bi bi-cup-straw fs-1"></i>
-                    <h5 class="mt-2">Minuman</h5>
-                    <p class="text-muted mb-0">Minuman segar dan nikmat.</p>
-                    <button class="btn btn-outline-primary mt-3"
-                        onclick="filterKategori('minuman')">
-                        Lihat Minuman
+        </div>
+
+        <!-- DAFTAR PRODUK DI DALAM KATEGORI -->
+        <section id="bagianProduk" style="display: none;">
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-3">
+                <div>
+                    <button class="btn btn-outline-primary btn-sm mb-3" onclick="kembaliKategori()">
+                        <i class="bi bi-arrow-left"></i> Kembali ke Kategori
                     </button>
+                    <h3 class="section-title mb-0" id="judulKategori">Daftar Produk</h3>
                 </div>
+
+                <input type="text" id="cariProduk" class="form-control"
+                    style="max-width: 300px;"
+                    placeholder="Cari produk..."
+                    onkeyup="cariProduk()"
+                    aria-label="Cari produk">
             </div>
-        </div>
 
-        <!-- DAFTAR PRODUK -->
-        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-3">
-            <h3 class="section-title mb-0">Daftar Produk</h3>
-            <input type="text" id="cariProduk" class="form-control"
-                style="max-width: 300px;"
-                placeholder="Cari produk..."
-                onkeyup="cariProduk()"
-                aria-label="Cari produk">
-        </div>
+            <!-- FILTER MAKANAN DAN MINUMAN -->
+            <div class="mb-4">
+                <button class="btn btn-primary btn-sm tombol-jenis"
+                    onclick="filterJenis('semua', this)">Semua</button>
 
-        <div class="mb-4">
-            <button class="btn btn-primary btn-sm" onclick="filterKategori('semua')">Semua</button>
-            <button class="btn btn-outline-primary btn-sm" onclick="filterKategori('makanan')">Makanan</button>
-            <button class="btn btn-outline-primary btn-sm" onclick="filterKategori('minuman')">Minuman</button>
-        </div>
+                <button class="btn btn-outline-primary btn-sm tombol-jenis"
+                    onclick="filterJenis('makanan', this)">Makanan</button>
 
-        <div class="row g-4" id="daftarProduk">
-            <div class="col-md-3 col-sm-6 produk" data-kategori="makanan">
-                <div class="card produk-card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvEyF53wXH_43f0-5hRf33v-RlGBzceK5802Xbb_rehTtf78iIReIJOHs&s=10" class="card-img-top" alt="Ayam Geprek">
-                    <div class="card-body">
-                        <h5>Ayam Geprek</h5>
-                        <p class="text-muted">Ayam crispy dengan sambal pedas yang menggugah selera.</p>
-                        <p class="harga">Rp15.000</p>
-                        <button class="btn btn-primary w-100"
-                            onclick="beli(1, 'Ayam Geprek', 15000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvEyF53wXH_43f0-5hRf33v-RlGBzceK5802Xbb_rehTtf78iIReIJOHs&s=10')">
-                            <i class="bi bi-cart-plus"></i> Beli
-                        </button>
+                <button class="btn btn-outline-primary btn-sm tombol-jenis"
+                    onclick="filterJenis('minuman', this)">Minuman</button>
+            </div>
+
+            <!-- PRODUK -->
+            <div class="row g-4" id="daftarProduk">
+
+                <!-- KEDAI MBAK E -->
+                <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="kedai-mbak-e" data-jenis="makanan">
+
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvEyF53wXH_43f0-5hRf33v-RlGBzceK5802Xbb_rehTtf78iIReIJOHs&s=10"
+                            class="card-img-top" alt="Ayam Geprek">
+
+                        <div class="card-body">
+                            <h5>Ayam Geprek</h5>
+                            <p class="text-muted">Ayam crispy dengan sambal pedas yang menggugah selera.</p>
+                            <p class="harga">Rp15.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(1, 'Ayam Geprek', 15000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvEyF53wXH_43f0-5hRf33v-RlGBzceK5802Xbb_rehTtf78iIReIJOHs&s=10')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 produk" data-kategori="makanan">
-                <div class="card produk-card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8m80gwkIsFxKRfyuZhJuJbOVgf6fS2YVhGCkcORn-J4PW5Ad7yxCUCypB&s=10">
-                    <div class="card-body">
-                        <h5>Soto Ayam</h5>
-                        <p class="text-muted">Soto ayam hangat dengan kuah segar dan kaya rasa.</p>
-                        <p class="harga">Rp20.000</p>
-                        <button class="btn btn-primary w-100"
-                            onclick="beli(2, 'Soto Ayam', 20000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8m80gwkIsFxKRfyuZhJuJbOVgf6fS2YVhGCkcORn-J4PW5Ad7yxCUCypB&s=10')">
-                            <i class="bi bi-cart-plus"></i> Beli
-                        </button>
+                <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="kedai-mbak-e" data-jenis="makanan">
+
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8m80gwkIsFxKRfyuZhJuJbOVgf6fS2YVhGCkcORn-J4PW5Ad7yxCUCypB&s=10">
+
+                        <div class="card-body">
+                            <h5>Soto Ayam</h5>
+                            <p class="text-muted">Soto ayam hangat dengan kuah segar dan kaya rasa.</p>
+                            <p class="harga">Rp20.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(2, 'Soto Ayam', 20000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8m80gwkIsFxKRfyuZhJuJbOVgf6fS2YVhGCkcORn-J4PW5Ad7yxCUCypB&s=10')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 produk" data-kategori="makanan">
-                <div class="card produk-card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStPynSrgupgRcD_XDHPSPDu5sUI2prlTZcyv_s2PEmlQ&s=10" class="card-img-top" alt="Cimol Balado">
-                    <div class="card-body">
-                        <h5>Nasi Goreng</h5>
-                        <p class="text-muted">Nasi goreng lezat dengan bumbu khas yang bikin nagih.</p>
-                        <p class="harga">Rp17.000</p>
-                        <button class="btn btn-primary w-100"
-                            onclick="beli(3, 'Nasi Goreng', 17000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStPynSrgupgRcD_XDHPSPDu5sUI2prlTZcyv_s2PEmlQ&s=10')">
-                            <i class="bi bi-cart-plus"></i> Beli
-                        </button>
+                   <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="kedai-mbak-e" data-jenis="makanan">
+
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStPynSrgupgRcD_XDHPSPDu5sUI2prlTZcyv_s2PEmlQ&s=10"
+                            class="card-img-top" alt="Nasi Goreng">
+
+                        <div class="card-body">
+                            <h5>Nasi Goreng</h5>
+                            <p class="text-muted">Nasi goreng lezat dengan bumbu khas yang bikin nagih.</p>
+                            <p class="harga">Rp17.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(3, 'Nasi Goreng', 17000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStPynSrgupgRcD_XDHPSPDu5sUI2prlTZcyv_s2PEmlQ&s=10')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 produk" data-kategori="makanan">
-                <div class="card produk-card shadow-sm">
-                    <img src="https://img.magnific.com/foto-premium/indomie-rebus-atau-mie-rebus-instan-dengan-telur-rebus-tomat-dan-irisan-jeruk-nipis_511235-13730.jpg" class="card-img-top" alt="Keripik Singkong">
-                    <div class="card-body">
-                        <h5>Mie Rebus</h5>
-                        <p class="text-muted">Mie hangat dengan kuah gurih yang nikmat.</p>
-                        <p class="harga">Rp12.000</p>
-                        <button class="btn btn-primary w-100"
-                            onclick="beli(4, 'Mie Rebus', 12000, 'https://img.magnific.com/foto-premium/indomie-rebus-atau-mie-rebus-instan-dengan-telur-rebus-tomat-dan-irisan-jeruk-nipis_511235-13730.jpg')">
-                            <i class="bi bi-cart-plus"></i> Beli
-                        </button>
+                <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="kedai-mbak-e" data-jenis="makanan">
+
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://img.magnific.com/foto-premium/indomie-rebus-atau-mie-rebus-instan-dengan-telur-rebus-tomat-dan-irisan-jeruk-nipis_511235-13730.jpg"
+                            class="card-img-top" alt="Mie Rebus">
+
+                        <div class="card-body">
+                            <h5>Mie Rebus</h5>
+                            <p class="text-muted">Mie hangat dengan kuah gurih yang nikmat.</p>
+                            <p class="harga">Rp12.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(4, 'Mie Rebus', 12000, 'https://img.magnific.com/foto-premium/indomie-rebus-atau-mie-rebus-instan-dengan-telur-rebus-tomat-dan-irisan-jeruk-nipis_511235-13730.jpg')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 produk" data-kategori="minuman">
-                <div class="card produk-card shadow-sm">
-                    <img src="https://www.jagel.id/api/listimage/v/Pop-Ice-Bubble--0-4455e0fc9fa04235.jpg" class="card-img-top" alt="Es Buah">
-                    <div class="card-body">
-                        <h5>Pop Ice</h5>
-                        <p class="text-muted">Minuman segar dengan berbagai varian.</p>
-                        <p class="harga">Rp5.000</p>
-                        <button class="btn btn-primary w-100"
-                            onclick="beli(5, 'Pop Ice', 5000, 'https://www.jagel.id/api/listimage/v/Pop-Ice-Bubble--0-4455e0fc9fa04235.jpg')">
-                            <i class="bi bi-cart-plus"></i> Beli
-                        </button>
+                <!-- KANTIN GUDEG -->
+                <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="kantin-gudeg" data-jenis="makanan">
+
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://asset.kompas.com/crops/kKuK6UQ6hgTG7j6waV7-WPjliZM=/12x0:980x645/1200x800/data/photo/2023/05/26/64704743a406f.jpg"
+                            class="card-img-top" alt="Nasi Gudeg">
+
+                        <div class="card-body">
+                            <h5>Nasi Gudeg</h5>
+                            <p class="text-muted">Nasi Gudeg lezat dengan bumbu khas yang bikin nagih.</p>
+                            <p class="harga">Rp17.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(3, 'Nasi Gudeg', 17000, 'https://asset.kompas.com/crops/kKuK6UQ6hgTG7j6waV7-WPjliZM=/12x0:980x645/1200x800/data/photo/2023/05/26/64704743a406f.jpg')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 produk" data-kategori="minuman">
-                <div class="card produk-card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHSLtl_Xx1KEsAmb0A0jmpF1Yq7Pw76pwD4VkS6e0Nc3_XZEHQLIPg9LJ&s=10" class="card-img-top" alt="Es Teh">
-                    <div class="card-body">
-                        <h5>Es Teh</h5>
-                        <p class="text-muted">Teh manis segar untuk menemani hari.</p>
-                        <p class="harga">Rp5.000</p>
-                        <button class="btn btn-primary w-100"
-                            onclick="beli(6, 'Es Teh', 5000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHSLtl_Xx1KEsAmb0A0jmpF1Yq7Pw76pwD4VkS6e0Nc3_XZEHQLIPg9LJ&s=10')">
-                            <i class="bi bi-cart-plus"></i> Beli
-                        </button>
+                <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="kantin-gudeg" data-jenis="makanan">
+
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://asset.kompas.com/crops/I7PStYAvaQuwLnnoKTTHtUoHBNk=/0x83:1000x750/1200x800/data/photo/2021/07/19/60f4ff9a5a749.jpg"
+                            class="card-img-top" alt="Opor Ayam">
+
+                        <div class="card-body">
+                            <h5>Nasi Opor Ayam</h5>
+                            <p class="text-muted">Opor ayam lezat dengan bumbu khas yang bikin nagih.</p>
+                            <p class="harga">Rp25.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(4, 'Nasi Opor Ayam', 25000, 'https://asset.kompas.com/crops/I7PStYAvaQuwLnnoKTTHtUoHBNk=/0x83:1000x750/1200x800/data/photo/2021/07/19/60f4ff9a5a749.jpg')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <!-- JAJAN DI TETEH -->
+                <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="jajan-di-teteh" data-jenis="minuman">
 
-            <div class="col-md-3 col-sm-6 produk" data-kategori="minuman">
-                <div class="card produk-card shadow-sm">
-                    <img src="https://www.shutterstock.com/image-photo/cup-cappuccino-coffee-on-wooden-260nw-1074209732.jpg" class="card-img-top" alt="Jus Alpukat">
-                    <div class="card-body">
-                        <h5>Cappucino</h5>
-                        <p class="text-muted">Minuman coffe segar dan nikmat.</p>
-                        <p class="harga">Rp20.000</p>
-                        <button class="btn btn-primary w-100"
-                            onclick="beli(7, 'Cappucino', 20000, 'https://www.shutterstock.com/image-photo/cup-cappuccino-coffee-on-wooden-260nw-1074209732.jpg')">
-                            <i class="bi bi-cart-plus"></i> Beli
-                        </button>
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://www.jagel.id/api/listimage/v/Pop-Ice-Bubble--0-4455e0fc9fa04235.jpg"
+                            class="card-img-top" alt="Pop Ice">
+
+                        <div class="card-body">
+                            <h5>Pop Ice</h5>
+                            <p class="text-muted">Minuman segar dengan berbagai varian.</p>
+                            <p class="harga">Rp5.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(5, 'Pop Ice', 5000, 'https://www.jagel.id/api/listimage/v/Pop-Ice-Bubble--0-4455e0fc9fa04235.jpg')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 produk" data-kategori="minuman">
-                <div class="card produk-card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsy33w6JyjAwUglfs2HPJUgARX4dDcLkXPw1wqHohSnQ&s=10" class="card-img-top" alt="Kopi Susu">
-                    <div class="card-body">
-                        <h5>Kopi Susu</h5>
-                        <p class="text-muted">Kopi susu dengan rasa creamy.</p>
-                        <p class="harga">Rp10.000</p>
-                        <button class="btn btn-primary w-100"
-                            onclick="beli(8, 'Kopi Susu', 10000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsy33w6JyjAwUglfs2HPJUgARX4dDcLkXPw1wqHohSnQ&s=10')">
-                            <i class="bi bi-cart-plus"></i> Beli
-                        </button>
+                <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="jajan-di-teteh" data-jenis="minuman">
+
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHSLtl_Xx1KEsAmb0A0jmpF1Yq7Pw76pwD4VkS6e0Nc3_XZEHQLIPg9LJ&s=10"
+                            class="card-img-top" alt="Es Teh">
+
+                        <div class="card-body">
+                            <h5>Es Teh</h5>
+                            <p class="text-muted">Teh manis segar untuk menemani hari.</p>
+                            <p class="harga">Rp5.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(6, 'Es Teh', 5000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHSLtl_Xx1KEsAmb0A0jmpF1Yq7Pw76pwD4VkS6e0Nc3_XZEHQLIPg9LJ&s=10')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <p id="produkKosong" class="text-center text-muted mt-4" style="display:none;">
-            Produk tidak ditemukan.
-        </p>
+                <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="jajan-di-teteh" data-jenis="minuman">
+
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://www.shutterstock.com/image-photo/cup-cappuccino-coffee-on-wooden-260nw-1074209732.jpg"
+                            class="card-img-top" alt="Cappuccino">
+
+                        <div class="card-body">
+                            <h5>Cappucino</h5>
+                            <p class="text-muted">Minuman coffee segar dan nikmat.</p>
+                            <p class="harga">Rp20.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(7, 'Cappucino', 20000, 'https://www.shutterstock.com/image-photo/cup-cappuccino-coffee-on-wooden-260nw-1074209732.jpg')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 produk"
+                    data-kategori="jajan-di-teteh" data-jenis="minuman">
+
+                    <div class="card produk-card shadow-sm">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsy33w6JyjAwUglfs2HPJUgARX4dDcLkXPw1wqHohSnQ&s=10"
+                            class="card-img-top" alt="Kopi Susu">
+
+                        <div class="card-body">
+                            <h5>Kopi Susu</h5>
+                            <p class="text-muted">Kopi susu dengan rasa creamy.</p>
+                            <p class="harga">Rp10.000</p>
+
+                            <button class="btn btn-primary w-100"
+                                onclick="beli(8, 'Kopi Susu', 10000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsy33w6JyjAwUglfs2HPJUgARX4dDcLkXPw1wqHohSnQ&s=10')">
+                                <i class="bi bi-cart-plus"></i> Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p id="produkKosong" class="text-center text-muted mt-4" style="display:none;">
+                Produk tidak ditemukan.
+            </p>
+
+        </section>
     </main>
 
-     <!-- PEMANGGILAN FOOTER -->
-    <div id="footer-container"></div>
+    <!-- INFORMASI LOKASI -->
+    <section class="locations" id="locations">
+        <div class="container">
+            <div class="location-details">
+                <h2>Lokasi UMKM</h2>
+                <p>Jl. Contoh UMKM No. 123, Kota Contoh, Provinsi Contoh</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Memanggil header dan footer -->
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <h5><i class="bi bi-shop"></i> UMKM Digital Hub</h5>
+                    <p>
+                        Platform digital untuk mengenalkan dan memasarkan
+                        produk unggulan UMKM lokal.
+                    </p>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <h6>Menu</h6>
+                    <p><a href="beranda.html">Beranda</a></p>
+                    <p><a href="kategori.html">Kategori</a></p>
+                    <p><a href="promo.html">Promo</a></p>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <h6>Informasi</h6>
+                    <p><a href="tentangKami.html">Tentang Kami</a></p>
+                    <p><a href="kontak.html">Kontak</a></p>
+                    <p><a href="keranjang.html">Keranjang</a></p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <p class="text-center mb-0">
+                &copy; 2026 UMKM Digital Hub. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <a href="lokasi.html" class="location-button"
+        aria-label="Lihat lokasi UMKM" title="Lihat lokasi">
+        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
     <script>
 
-    <!-- Memanggil header.html -->
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header-container").innerHTML = data;
-            })
-            .catch(error => {
-                console.error("Header gagal dimuat:", error);
-            });
-
-    <!-- Memanggil footer.html -->
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("footer-container").innerHTML = data;
-            })
-            .catch(error => {
-                console.error("Footer gagal dimuat:", error);
-            });
-    </script>
-
-    <script>
         function getCart() {
             try {
                 return JSON.parse(localStorage.getItem("umkmCart") || "[]");
@@ -343,6 +603,7 @@
 
         function updateJumlahKeranjang() {
             let cart = getCart();
+
             let jumlah = cart.reduce((total, item) => {
                 return total + Number(item.qty || 0);
             }, 0);
@@ -350,41 +611,97 @@
             document.getElementById("jumlahKeranjang").textContent = jumlah;
         }
 
-        function filterKategori(kategori) {
-            let produk = document.querySelectorAll(".produk");
+        // KATEGORI AKTIF
+        let kategoriAktif = "";
+        let jenisAktif = "semua";
 
-            produk.forEach(item => {
-                let jenis = item.getAttribute("data-kategori");
-                item.style.display =
-                    kategori === "semua" || jenis === kategori ? "" : "none";
+        // MEMBUKA KATEGORI
+        function bukaKategori(kategori, namaKategori) {
+            kategoriAktif = kategori;
+            jenisAktif = "semua";
+
+            document.getElementById("judulKategori").textContent = namaKategori;
+            document.getElementById("bagianKategori").style.display = "none";
+            document.getElementById("bagianProduk").style.display = "block";
+            document.getElementById("cariProduk").value = "";
+
+            document.querySelectorAll(".tombol-jenis").forEach(tombol => {
+                tombol.classList.remove("btn-primary");
+                tombol.classList.add("btn-outline-primary");
             });
 
-            cekProdukKosong();
+            let tombolSemua = document.querySelector(".tombol-jenis");
+            tombolSemua.classList.remove("btn-outline-primary");
+            tombolSemua.classList.add("btn-primary");
+
+            tampilkanProduk();
         }
 
-        function cariProduk() {
+        // KEMBALI KE KATEGORI
+        function kembaliKategori() {
+            document.getElementById("bagianProduk").style.display = "none";
+            document.getElementById("bagianKategori").style.display = "flex";
+            document.getElementById("cariProduk").value = "";
+        }
+
+        // FILTER MAKANAN DAN MINUMAN
+        function filterJenis(jenis, tombol) {
+            jenisAktif = jenis;
+
+            document.querySelectorAll(".tombol-jenis").forEach(item => {
+                item.classList.remove("btn-primary");
+                item.classList.add("btn-outline-primary");
+            });
+
+            tombol.classList.remove("btn-outline-primary");
+            tombol.classList.add("btn-primary");
+
+            tampilkanProduk();
+        }
+
+        // MENAMPILKAN PRODUK
+        function tampilkanProduk() {
             let keyword = document.getElementById("cariProduk").value.toLowerCase();
             let produk = document.querySelectorAll(".produk");
 
             produk.forEach(item => {
+                let kategori = item.getAttribute("data-kategori");
+                let jenis = item.getAttribute("data-jenis");
                 let nama = item.querySelector("h5").textContent.toLowerCase();
-                item.style.display = nama.includes(keyword) ? "" : "none";
+
+                let sesuaiKategori = kategori === kategoriAktif;
+                let sesuaiJenis = jenisAktif === "semua" || jenis === jenisAktif;
+                let sesuaiPencarian = nama.includes(keyword);
+
+                item.style.display =
+                    sesuaiKategori && sesuaiJenis && sesuaiPencarian ? "" : "none";
             });
 
             cekProdukKosong();
         }
 
+        // PENCARIAN PRODUK
+        function cariProduk() {
+            tampilkanProduk();
+        }
+
+        // CEK PRODUK KOSONG
         function cekProdukKosong() {
             let produk = document.querySelectorAll(".produk");
-            let terlihat = Array.from(produk).some(item => item.style.display !== "none");
+
+            let terlihat = Array.from(produk).some(item =>
+                item.style.display !== "none"
+            );
 
             document.getElementById("produkKosong").style.display =
                 terlihat ? "none" : "block";
         }
 
         updateJumlahKeranjang();
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
