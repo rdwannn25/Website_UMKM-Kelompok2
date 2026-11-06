@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,49 +10,49 @@
     <link rel="stylesheet" href="Asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="Asset/css/bootstrap-icons.min.css">
     <style>
-        :root {
+         :root {
             --brand-green: #198754;
             --brand-green-dark: #183b2b;
             --brand-green-light: #e8f5ee;
         }
-
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
             color: #343a40;
             line-height: 1.7;
         }
-
+        
         .navbar-brand {
             font-weight: bold;
             color: var(--brand-green);
         }
-
+        
         .nav-link {
             color: #333;
         }
-
+        
         .nav-link:hover,
         .nav-link.active {
             color: var(--brand-green);
         }
-
+        
         .hero {
             background: linear-gradient(135deg, var(--brand-green-light), #f8f9fa);
             padding: clamp(48px, 8vw, 88px) 0;
         }
-
+        
         .hero h1 {
             font-weight: bold;
-            color: var(--brand-green-dark);
+            color: var(--brand-green);
             font-size: clamp(2.25rem, 5vw, 3.5rem);
             line-height: 1.15;
         }
-
+        
         .hero p {
             max-width: 600px;
         }
-
+        
         .hero-image {
             width: 100%;
             max-height: 300px;
@@ -60,13 +60,21 @@
             border-radius: 1rem;
             box-shadow: 0 1rem 2.5rem rgba(24, 59, 43, 0.14);
         }
-
+        
         .section-title {
             font-weight: bold;
             color: var(--brand-green-dark);
             margin-bottom: 1.5rem;
         }
-
+        
+        .about-brand-title {
+            color: var(--brand-green);
+        }
+        
+        .about-description {
+            font-size: clamp(1rem, 1.15vw, 1.125rem);
+        }
+        
         .about-card {
             background-color: #fff;
             border: 1px solid #e5eee8;
@@ -76,17 +84,17 @@
             box-shadow: 0 4px 16px rgba(24, 59, 43, 0.05);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
+        
         .about-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 24px rgba(24, 59, 43, 0.1);
         }
-
+        
         .about-card i {
             font-size: 2.5rem;
             color: var(--brand-green);
         }
-
+        
         .about-image {
             width: 100%;
             aspect-ratio: 4 / 3;
@@ -94,28 +102,28 @@
             object-fit: cover;
             border-radius: 1rem;
         }
-
+        
         .vision {
             background-color: var(--brand-green-light);
             padding: clamp(1.5rem, 5vw, 3rem);
             border-radius: 1rem;
         }
-
+        
         footer {
             background-color: var(--brand-green-dark);
             color: white;
             padding: 3rem 0 1.5rem;
         }
-
+        
         footer a {
             color: white;
             text-decoration: none;
         }
-
+        
         footer a:hover {
             text-decoration: underline;
         }
-
+        
         @media (prefers-reduced-motion: reduce) {
             .about-card {
                 transition: none;
@@ -126,7 +134,7 @@
 
 <body>
 
-      <!-- HEADER -->
+    <!-- HEADER -->
     <div id="header-container"></div>
 
     <!-- HERO / TENTANG KAMI -->
@@ -140,16 +148,11 @@
                     <h1>Kantin Sehati</h1>
 
                     <p class="lead mt-3">
-                        Selamat datang di Kantin Sehati! Kami hadir
-                        untuk menyediakan berbagai pilihan makanan
-                        dan minuman yang sehat, bergizi, dan lezat
-                        untuk mendukung pola hidup sehat.
                     </p>
 
                     <p>
-                        Kami percaya bahwa makanan sehat merupakan
-                        bagian penting untuk menjaga kesehatan dan
-                        meningkatkan semangat dalam menjalani aktivitas.
+                        Selamat datang di Kantin Sehati Kami hadir untuk menyediakan berbagai pilihan makanan dan minuman yang sehat, bergizi, dan lezat untuk mendukung pola hidup sehat. Kami percaya bahwa makanan sehat merupakan bagian penting untuk menjaga kesehatan dan meningkatkan
+                        semangat dalam menjalani aktivitas.
                     </p>
 
                     <a href="kategori.html" class="btn btn-success mt-2">
@@ -160,10 +163,7 @@
 
                 <div class="col-md-5 text-center mt-4 mt-md-0">
 
-                    <img
-                        src="kedaiestehpoci.jpeg"
-                        class="hero-image"
-                        alt="Suasana salah satu kedai mitra Kantin Kita">
+                    <img src="kedaiestehpoci.jpeg" class="hero-image" alt="Suasana salah satu kedai mitra Kantin Kita">
 
                 </div>
 
@@ -184,38 +184,26 @@
 
             <div class="col-md-6 mb-4">
 
-                <img
-                    src="kedaiteteh.jpeg"
-                    class="about-image"
-                    alt="Kedai mitra yang menyediakan pilihan makanan dan minuman">
+                <img src="kedaiteteh.jpeg" class="about-image" alt="Kedai mitra yang menyediakan pilihan makanan dan minuman">
 
             </div>
 
             <div class="col-md-6">
 
-                <h3>Kantin Sehati</h3>
+                <h3 class="about-brand-title">
+                    <b>Kantin Sehati</b></h3>
 
-                <p>
-                    Kantin Sehati merupakan sebuah website yang
-                    menyediakan informasi mengenai berbagai pilihan
-                    makanan dan minuman sehat.
+                <p class="about-description">
+                    Kantin Sehati merupakan sebuah website yang menyediakan informasi mengenai berbagai pilihan makanan dan minuman sehat.
+                </p>
+
+                <p class="about-description">
+                    Kami menawarkan berbagai menu makanan dengan memperhatikan kandungan gizi, kebersihan, dan kualitas bahan makanan yang digunakan.
                 </p>
 
                 <p>
-                    Kami menawarkan berbagai menu makanan dengan
-                    memperhatikan kandungan gizi, kebersihan, dan
-                    kualitas bahan makanan yang digunakan.
-                </p>
-
-                <p>
-                    Website Kantin Sehati dibuat 
-                    sebagai bentuk pemanfaatan teknologi informasi untuk 
-                    meningkatkan performa dan kualitas pelayanan kantin di 
-                    lingkungan UKRI,
-                    Website ini bertujuan untuk memudahkan mahasiswa dan warga kampus
-                    dalam memperoleh informasi mengenai menu makanan dan minuman,
-                    sekaligus mendukung digitalisasi layanan kantin agar lebih
-                    praktis, efektif, dan modern.
+                    Website Kantin Sehati dibuat sebagai bentuk pemanfaatan teknologi informasi untuk meningkatkan performa dan kualitas pelayanan kantin di lingkungan UKRI, Website ini bertujuan untuk memudahkan mahasiswa dan warga kampus dalam memperoleh informasi mengenai
+                    menu makanan dan minuman, sekaligus mendukung digitalisasi layanan kantin agar lebih praktis, efektif, dan modern.
                 </p>
 
             </div>
@@ -243,10 +231,7 @@
                     <h3 class="h5 mt-3">Visi</h3>
 
                     <p>
-                        Menjadi kantin pilihan yang menyediakan
-                        makanan dan minuman sehat, bergizi,
-                        higienis, serta berkualitas untuk
-                        mendukung pola hidup sehat.
+                        Menjadi kantin pilihan yang menyediakan makanan dan minuman sehat, bergizi, higienis, serta berkualitas untuk mendukung pola hidup sehat.
                     </p>
 
                 </div>
@@ -262,11 +247,7 @@
                     <h3 class="h5 mt-3">Misi</h3>
 
                     <p>
-                        Menyediakan makanan dan minuman sehat,
-                        menjaga kebersihan makanan, menggunakan
-                        bahan berkualitas, serta meningkatkan
-                        kesadaran masyarakat tentang pentingnya
-                        pola makan sehat.
+                        Menyediakan makanan dan minuman sehat, menjaga kebersihan makanan, menggunakan bahan berkualitas, serta meningkatkan kesadaran masyarakat tentang pentingnya pola makan sehat.
                     </p>
 
                 </div>
@@ -288,12 +269,8 @@
             </h2>
 
             <p>
-                Kantin Sehati bertujuan untuk memberikan kemudahan
-                kepada mahasiswa serta masyarakat sekitar dalam mendapatkan makanan dan
-                minuman yang sehat serta bergizi. Kami juga ingin
-                meningkatkan kesadaran akan pentingnya memilih
-                makanan yang baik untuk kesehatan tubuh dan
-                mendukung kebiasaan hidup sehat.
+                Kantin Sehati bertujuan untuk memberikan kemudahan kepada mahasiswa serta masyarakat sekitar dalam mendapatkan makanan dan minuman yang sehat serta bergizi. Kami juga ingin meningkatkan kesadaran akan pentingnya memilih makanan yang baik untuk kesehatan
+                tubuh dan mendukung kebiasaan hidup sehat.
             </p>
 
         </div>
@@ -319,9 +296,7 @@
                     <h3 class="h6 mt-3">Makanan Bergizi</h3>
 
                     <p>
-                        Menyediakan pilihan makanan yang
-                        memperhatikan kandungan gizi untuk
-                        mendukung kesehatan tubuh.
+                        Menyediakan pilihan makanan yang memperhatikan kandungan gizi untuk mendukung kesehatan tubuh.
                     </p>
 
                 </div>
@@ -337,8 +312,7 @@
                     <h3 class="h6 mt-3">Bersih dan Higienis</h3>
 
                     <p>
-                        Mengutamakan kebersihan dalam proses
-                        penyajian makanan dan minuman.
+                        Mengutamakan kebersihan dalam proses penyajian makanan dan minuman.
                     </p>
 
                 </div>
@@ -354,8 +328,7 @@
                     <h3 class="h6 mt-3">Mendukung Hidup Sehat</h3>
 
                     <p>
-                        Membantu membangun kebiasaan memilih
-                        makanan sehat dalam kehidupan sehari-hari.
+                        Membantu membangun kebiasaan memilih makanan sehat dalam kehidupan sehari-hari.
                     </p>
 
                 </div>
@@ -371,7 +344,7 @@
     <div id="footer-container"></div>
 
     <script src="Asset/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- JAVASCRIPT -->
     <script>
         // MEMANGGIL HEADER
@@ -402,8 +375,9 @@
             })
             .catch(error => {
                 console.error("Footer gagal dimuat:", error);
-            }); 
+            });
     </script>
 
 </body>
+
 </html>
