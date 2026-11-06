@@ -125,7 +125,7 @@
                 <h2>Mari Terhubung dengan Kami</h2>
                 <p class="text-secondary mx-auto mb-0" style="max-width: 750px;">
                     Kami siap membantu Anda mendapatkan informasi mengenai produk, layanan, maupun kerja sama.
-                    Jangan ragu untuk menghubungi tim UMKM Digital Hub melalui informasi kontak berikut.
+                    Jangan ragu untuk menghubungi tim customer service KantinSehati melalui informasi pesan berikut.
                 </p>
             </div>
         </section>
@@ -202,6 +202,9 @@
                                     Kirim Pesan
                                 </button>
 
+                                <div id="contactStatus" class="alert alert-success mt-3 mb-0 d-none" role="status"
+                                    aria-live="polite"></div>
+
                             </form>
 
                         </div>
@@ -251,28 +254,11 @@
 
     <script>
         document.getElementById("contactForm").addEventListener("submit", function (event) {
-
             event.preventDefault();
-
-            const nama = document.getElementById("nama").value;
-            const email = document.getElementById("email").value;
-            const subject = document.getElementById("subject").value;
-            const pesan = document.getElementById("pesan").value;
-
-            const nomorWhatsApp = "6282123373370";
-
-            const isiPesan =
-                "Halo UMKM Digital Hub!" +
-                "\n\nNama: " + nama +
-                "\nEmail: " + email +
-                "\nSubject: " + subject +
-                "\nPesan: " + pesan;
-
-            const url = "https://wa.me/" + nomorWhatsApp +
-                "?text=" + encodeURIComponent(isiPesan);
-
-            window.open(url, "_blank");
-
+            const status = document.getElementById("contactStatus");
+            status.textContent = "Pesan berhasil dikirim. Terima kasih telah menghubungi kami!";
+            status.classList.remove("d-none");
+            this.reset();
         });
     </script>
 
