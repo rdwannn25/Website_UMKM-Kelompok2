@@ -117,8 +117,8 @@
             vertical-align: middle;
         }
 
-        /* TOMBOL LOKASI */
-        .location-button {
+        /* TOMBOL FAQ */
+        .faq-button {
             position: fixed;
             right: 25px;
             bottom: 25px;
@@ -137,13 +137,13 @@
             transition: background-color 0.2s, transform 0.2s;
         }
 
-        .location-button:hover {
+        .faq-button:hover {
             background-color: #146c43;
             color: white;
             transform: translateY(-2px);
         }
 
-        .location-button:focus-visible {
+        .faq-button:focus-visible {
             outline: 3px solid #a3cfbb;
             outline-offset: 3px;
         }
@@ -162,7 +162,7 @@
                 padding: 20px;
             }
 
-            .location-button {
+            .faq-button {
                 right: 15px;
                 bottom: 15px;
             }
@@ -179,7 +179,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-7">
-                    <h1>Selamat Datang di KantinKita</h1>
+                    <h1>Selamat Datang di KantinSehati</h1>
                     <p class="mt-3">
                         Lapar di sela-sela aktivitas? 
                         Temukan berbagai pilihan makanan dan minuman favorit di sini. 
@@ -208,10 +208,10 @@
 
             <div class="text-center mb-4">
                 <h2 class="section-title">
-                    Statistik KantinKita
+                    Statistik KantinSehati
                 </h2>
                 <p class="text-muted">
-                    Informasi penjualan dan perkembangan produk KantinKita.
+                    Informasi penjualan dan perkembangan produk KantinSehati.
                 </p>
             </div>
 
@@ -260,7 +260,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Produk</th>
-                                <th>UMKM</th>
+                                <th>Tenant</th>
                                 <th>Produk Terjual</th>
                                 <th>Total Pendapatan</th>
                             </tr>
@@ -285,22 +285,21 @@
 
     <div id="footer-container"></div>
 
-    <!-- TOMBOL LOKASI -->
+    <!-- TOMBOL FAQ -->
 
     <a
-        href="lokasi.html"
-        class="location-button"
-        title="Lihat lokasi UMKM"
-        aria-label="Lihat lokasi UMKM">
-        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+        href="Faq.html"
+        class="faq-button"
+        title="Buka FAQ"
+        aria-label="Buka FAQ">
+        <i class="bi bi-chat-dots-fill" aria-hidden="true"></i>
     </a>
 
     <!-- Bootstrap JS Lokal Versi 5.3.3 -->
 
     <script src="Asset/js/bootstrap.bundle.min.js"></script>
 
-    <!-- JAVASCRIPT -->
-
+<!-- JAVASCRIPT -->
     <script>
         // MEMANGGIL HEADER
         fetch("header.html")
