@@ -8,8 +8,8 @@ Repository ini dibuat untuk memenuhi tugas proyek kelompok. Berikut daftar anggo
 | No. | Nama Anggota | NPM | Username GitHub | File yang Dikerjakan |
 |:---:|---|---|---|---|
 | 1. | Ridwan Setiawan |20251320024| @rdwannn25 | `lokasi.html` |
-| 2. | Fera Fatimah Azahra | @ferrrz | `beranda.html` |
-| 3. | Hilga Maytavani| @hilgamay-cpu | `kontak.html` |
-| 4. | Hilda Auliyah | @hilda-30 | `keranjang.html` |
-| 5. | Kaysha Ratu Azzira | @kaysharatu254-collab | `tentangKami.html` |
-| 6. | Diki Aryadi | @dikraw9-jpg| `kategori.html` |
+| 2. | Fera Fatimah Azahra |202513200| @ferrrz | `beranda.html` |
+| 3. | Hilga Maytavani| 202513200|@hilgamay-cpu | `kontak.html` |
+| 4. | Hilda Auliyah |202513200| @hilda-30 | `keranjang.html` |
+| 5. | Kaysha Ratu Azzira | 202513200| @kaysharatu254-collab | `tentangKami.html` |
+| 6. | Diki Aryadi |202513200|  @dikraw9-jpg| `kategori.html` |
