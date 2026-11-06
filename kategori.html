@@ -187,6 +187,7 @@
 
                 <div class="col-md-5 text-center mt-4 mt-md-0">
                     <img
+                        id="gambarHeroKategori"
                         src="kedaigeprek.jpeg"
                         class="img-fluid rounded"
                         alt="Produk UMKM lokal">
@@ -619,13 +620,25 @@ function updateJumlahKeranjang() {
         // KATEGORI AKTIF
         let kategoriAktif = "";
         let jenisAktif = "semua";
+        const gambarKedai = {
+            "kedai-mbak-e": { src: "kedaigeprek.jpeg", alt: "Kedai Mbak E" },
+            "kantin-gudeg": { src: "kedaiestehpoci.jpeg", alt: "Kantin Gudeg" },
+            "jajan-di-teteh": { src: "kedaiteteh.jpeg", alt: "Kedai Jajan di Teteh" },
+        };
 
         // MEMBUKA KATEGORI
         function bukaKategori(kategori, namaKategori) {
+            const kedai = gambarKedai[kategori];
+            if (!kedai) {
+                throw new Error("Gambar untuk kategori " + namaKategori + " tidak ditemukan.");
+            }
+
             kategoriAktif = kategori;
             jenisAktif = "semua";
 
             document.getElementById("judulKategori").textContent = namaKategori;
+            document.getElementById("gambarHeroKategori").src = kedai.src;
+            document.getElementById("gambarHeroKategori").alt = kedai.alt;
             document.getElementById("bagianKategori").style.display = "none";
             document.getElementById("bagianProduk").style.display = "block";
             document.getElementById("cariProduk").value = "";
