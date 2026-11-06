@@ -5,9 +5,9 @@
 
 Repository ini dibuat untuk memenuhi tugas proyek kelompok. Berikut daftar anggota, username GitHub, dan pembagian file yang dikerjakan masing-masing anggota.
 
-| No. | Nama Anggota | Username GitHub | File yang Dikerjakan |
-|:---:|---|---|---|
-| 1. | Ridwan Setiawan | @rdwannn25 | `lokasi.html` |
+| No. | Nama Anggota | NPM | Username GitHub | File yang Dikerjakan |
+|:---:|---|---|---|---|
+| 1. | Ridwan Setiawan |20251320024| @rdwannn25 | `lokasi.html` |
 | 2. | Fera Fatimah Azahra | @ferrrz | `beranda.html` |
 | 3. | Hilga Maytavani| @hilgamay-cpu | `kontak.html` |
 | 4. | Hilda Auliyah | @hilda-30 | `keranjang.html` |
